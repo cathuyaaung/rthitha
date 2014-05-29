@@ -1,8 +1,8 @@
 from django.conf.urls.defaults import patterns, include, url
 from rthitha import movies
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -17,4 +17,5 @@ urlpatterns = patterns('',
 
 
 	url(r'^$', include('rthitha.movies.urls')),
+	url(r'^admin/', include(admin.site.urls)),
 )

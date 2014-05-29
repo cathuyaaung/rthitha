@@ -2,7 +2,7 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-
+from movies.models import Movie
 
 def home(request):
     #return HttpResponse("Rango says hello world!")
@@ -13,7 +13,8 @@ def home(request):
 
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
-    context_dict = {'boldmessage': "I am bold font from the context"}
+    movie_list = Movie.objects.all()
+    context_dict = {'movie_list': movie_list}
 
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
