@@ -17,5 +17,5 @@ urlpatterns = patterns('',
 
 
 	url(r'^$', include('rthitha.movies.urls')),
-	url(r'^admin/', include(admin.site.urls)),
+	#url(r'^admin/', include(admin.site.urls)),
 )
