@@ -26,7 +26,7 @@ DATABASES = {
         # 'USER': 'django_user',
         # 'PASSWORD': 'thepassword'
 
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': 'cizrage$rthitha',
         'USER': 'cizrage',
         'PASSWORD': 'ygmfromthuya'
