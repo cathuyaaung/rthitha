@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from rthitha import movies
+#from rthitha import movies
 # Uncomment the next two lines to enable the admin:
 #from django.contrib import admin
 #admin.autodiscover()
