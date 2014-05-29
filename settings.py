@@ -30,7 +30,7 @@ DATABASES = {
         'NAME': 'cizrage$rthitha',
         'USER': 'cizrage',
         'PASSWORD': 'ygmfromthuya'
-        'HOST':'mysql.server',
+        'HOST': 'mysql.server',
 		'PORT': '',
     }
 }
