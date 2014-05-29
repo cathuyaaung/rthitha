@@ -1,4 +1,7 @@
 # Django settings for rthitha project.
+import os
+
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -60,7 +63,8 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/home/cizrage/rthitha/static'
+# STATIC_ROOT = '/home/cizrage/rthitha/static'
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -106,15 +110,14 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'rthitha.urls'
 
-import os
 
-PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    PROJECT_PATH + '/templates/',
+    # PROJECT_PATH + '/templates/',
+    os.path.join(PROJECT_PATH, 'templates')
 )
 
 INSTALLED_APPS = (
