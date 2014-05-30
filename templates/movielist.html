@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block title %}movies{% endblock %}
+
+{% block menu_block %}
+    <ul>
+        <li><a href="/" class="topmenu">rthitha</a></li>
+        <li><a href="/movies/" class="topmenu">movies</a></li>
+    </ul>
+{% endblock %}
+
+{% block body_block %}
+    <div align="center">
+    {% for movie in movie_list %}
+    <div>        
+        <a href="/movies/{{ movie.title }}">{{ movie.title }}</a>        
+    </div>
+    {% endfor %}
+
+    </div>
+{% endblock %}
+

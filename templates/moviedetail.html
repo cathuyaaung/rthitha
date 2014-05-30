@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}movies/{{ movie.title }}{% endblock %}
+
+{% block menu_block %}
+    <ul>
+        <li><a href="/" class="topmenu">rthitha</a></li>
+        <li><a href="/movies/" class="topmenu">movies</a></li>
+        <li><a href="/movies/{{ movie.title }}" class="topmenu">{{ movie.title }}</a></li>
+    </ul>
+{% endblock %}
+
+{% block body_block %}
+        
+        {% if movie %}
+        <div align="center">
+        <h1>{{ movie.title }}</h1>
+        <iframe id="f" name="widget" src="{{ movie.location }}" width="852" height="510" style="float:center"></iframe>
+        </div>
+        {% endif %}
+
+        {% if err %}
+        <div>
+        <h1>{{ err }}</h1>
+        </div>
+        {% endif %}
+{% endblock %}

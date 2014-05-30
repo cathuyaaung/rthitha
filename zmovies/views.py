@@ -20,4 +20,20 @@ def home(request):
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
-    return render_to_response('index.html', context_dict, context)
+    return render_to_response('movielist.html', context_dict, context)
+
+def moviedetail(request, movie_title_url):
+    context = RequestContext(request)
+
+    movie_title = movie_title_url.replace('_', ' ')
+
+    errMessage = ""
+    
+    try:
+        movie = Movie.objects.get(title=movie_title)        
+    except Movie.DoesNotExist:
+        errMessage = "Movie does not exist"
+
+    context_dict = {'err':errMessage, 'movie_title': movie_title, 'movie':movie}
+
+    return render_to_response('moviedetail.html', context_dict, context)

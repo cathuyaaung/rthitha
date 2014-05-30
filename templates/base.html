@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>
+        rthitha - {% block title %}How to Tango with Django!{% endblock %}
+        </title>
+<style>
+ul
+{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+}
+li
+{
+float:left;
+}
+a.topmenu
+{
+display:block;
+width:60px;
+font-size:20px;
+color:#FFFFFF;
+}
+</style>
+
+    </head>
+
+    <body background="{{ STATIC_URL }}bg.jpg">
+        <div>
+        	{% block menu_block %}{% endblock %}
+        </div>
+        <hr />
+    	<div>
+        	{% block body_block %}{% endblock %}
+    	<div>
+
+
+   	
+    </body>
+</html>

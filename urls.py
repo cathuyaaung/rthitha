@@ -16,8 +16,8 @@ urlpatterns = patterns('',
 	url(r'^$', include('rthitha.zmovies.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),		
+    url(r'^(?i)admin/', include(admin.site.urls)),		
 
     # /movies
-	url(r'^movies/', include('rthitha.zmovies.urls')),
+	url(r'^(?i)movies/', include('rthitha.zmovies.urls')),
 )
