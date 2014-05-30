@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
+from rthitha import views
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -13,7 +14,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # home
-	url(r'^$', include('rthitha.zmovies.urls')),
+	url(r'^$', views.home, name='home'),
 
     # Uncomment the next line to enable the admin:
     url(r'^(?i)admin/', include(admin.site.urls)),		
