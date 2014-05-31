@@ -3,11 +3,7 @@
 {% block title %}movies/{{ movie.title }}{% endblock %}
 
 {% block menu_block %}
-    <ul>
-        <li><a href="/" class="topmenu">rthitha</a></li>
-        <li><a href="/movies/" class="topmenu">movies</a></li>
         <li><a href="/movies/{{ movie.title }}" class="topmenu">{{ movie.title }}</a></li>
-    </ul>
 {% endblock %}
 
 {% block body_block %}

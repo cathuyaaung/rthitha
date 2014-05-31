@@ -21,4 +21,7 @@ urlpatterns = patterns('',
 
     # /movies
 	url(r'^(?i)movies/', include('rthitha.zmovies.urls')),
+
+    # /tvseries
+    url(r'^(?i)tvseries/', include('rthitha.tvseries.urls')),    
 )

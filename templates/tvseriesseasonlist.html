@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block title %}tvseries{% endblock %}
+
+{% block menu_block %}
+        <li><a href="/tvseries/{{tvshow.id}}" class="topmenu">
+            {{tvshow.name}}</a></li>
+{% endblock %}
+
+{% block body_block %}
+    <div align="center">
+    {% if season_list %}
+    {% for season in season_list %}
+    <div>        
+        <a href="/tvseries/{{season.tvshow.id}}/{{ season.id}}">
+        {{season.tvshow.name}} - Season {{ season.number }}</a>        
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    </div>
+{% endblock %}
+

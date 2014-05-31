@@ -15,7 +15,14 @@
 
     <body background="{{ STATIC_URL }}bg.jpg">
         <div>
-        	{% block menu_block %}{% endblock %}
+            <ul>
+                <li><a href="/" class="topmenu">rthitha</a></li>
+                <li><a href="/movies/" class="topmenu">movies</a></li>
+                <li><a href="/tvseries/" class="topmenu">tvseries</a></li>
+                {% block menu_block %}{% endblock %}
+            </ul>
+
+        	
         </div>
         
     	<div>

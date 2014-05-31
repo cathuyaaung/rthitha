@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}movies/{{ movie.title }}{% endblock %}
+
+{% block menu_block %}
+        <li><a href="/tvseries/{{tvshow.id}}" class="topmenu">
+            {{tvshow.name}}</a></li>
+        <li><a href="/tvseries/{{tvshow.id}}/{{season.id}}/" class="topmenu">
+            Season {{season.number}}</a></li>
+        <li><a href="/tvseries/{{tvshow.id}}/{{season.id}}/{{episode.id}}/" class="topmenu">
+            {{episode.title}}</a></li>            
+{% endblock %}
+
+{% block body_block %}
+        
+        {% if episode %}
+        <div align="center">
+        <h1>{{ episode.title }}</h1>
+        <iframe id="f" name="widget" src="{{ episode.location }}" width="852" height="510" style="float:center"></iframe>
+        </div>
+        {% endif %}
+
+        {% if err %}
+        <div>
+        <h1>{{ err }}</h1>
+        </div>
+        {% endif %}
+{% endblock %}
