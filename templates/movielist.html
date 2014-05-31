@@ -22,8 +22,10 @@
 		<div class"container">
 		{% for movie in movie_list %}
 			<div class="col-md-4">
-				<div class="panel">				            
-				<p class="lead">// <a href="/movies/{{ movie.title }}">{{ movie.title }}</a></p>
+				<div class="panel">
+				<a href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>		
+				<p class="lead">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a>
+				({{ movie.year}})</p>
 				</div>	
 			</div>
 		{% endfor %}

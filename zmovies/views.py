@@ -24,16 +24,6 @@ def home(request):
 
 def moviedetail(request, movie_title_url):
     context = RequestContext(request)
-
-    movie_title = movie_title_url.replace('_', ' ')
-
-    errMessage = ""
-    
-    try:
-        movie = Movie.objects.get(title=movie_title)        
-    except Movie.DoesNotExist:
-        errMessage = "Movie does not exist"
-
-    context_dict = {'err':errMessage, 'movie_title': movie_title, 'movie':movie}
-
+    movie = Movie.objects.get(id=movie_title_url)        
+    context_dict = {'movie':movie}
     return render_to_response('moviedetail.html', context_dict, context)

@@ -1,4 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.conf import settings
+
 from rthitha import views
 
 # Uncomment the next two lines to enable the admin:
@@ -25,3 +27,5 @@ urlpatterns = patterns('',
     # /tvseries
     url(r'^(?i)tvseries/', include('rthitha.tvseries.urls')),    
 )
+
+urlpatterns += patterns('',(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}))

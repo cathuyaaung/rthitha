@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} - movies{{ movie.title }}{% endblock %}
+{% block title %} - movies{% endblock %}
 
 {% block menu_block %}
 	<li><a href="/">Home</a></li>
@@ -27,9 +27,22 @@
 		<iframe id="f" name="widget" src="{{ movie.location }}" width="852" height="510" style="float:center"></iframe>
 		</div>
 		<div class="description">
-			{{ movie.location }}
+			{{ movie.description }}
 		</div>
 	</div>
+
+	<div class="row">
+		<div class"container">
+			<div class="col-md-4">
+				<div class="panel">
+				<a href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>		
+				<p class="lead">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a>
+				({{ movie.year}})</p>
+				</div>	
+			</div>
+		</div>		
+	</div>
+
 {% endif %}
 {% endblock %}
 

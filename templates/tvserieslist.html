@@ -22,8 +22,9 @@
 		<div class"container">
 		{% for tvshow in tvseries_list %}
 		<div class="col-md-4">
-			<div class="panel">				            
-				<p class="lead">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a> </p>
+			<div class="panel">		
+				<a href="/tvseries/{{ tvshow.id }}"><img src="/media/{{tvshow.poster}}"></a>	
+				<p class="lead">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a></p>
 			</div>	
 		</div>
 		{% endfor %}

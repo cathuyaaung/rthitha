@@ -22,6 +22,19 @@
 
 {% block season_list_block %}
     {% if season_list %}
+
+    <div class="row">
+        <div class"container">
+        <div class="col-md-4">
+            <div class="panel">     
+ 
+                <a href="/tvseries/{{ tvshow.id }}"><img src="/media/{{tvshow.poster}}"></a>                    
+                <p class="lead">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a> </p>
+            </div>  
+        </div>
+        </div>      
+    </div>  
+
     {% for season in season_list %}
             <div class"longbox">
                 <h1 class="cover-heading">// <a href="/tvseries/{{season.tvshow.id}}/{{ season.id}}">Season {{ season.number }}</a></h1>
