@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
+import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
@@ -31,6 +31,7 @@ class Migration(SchemaMigration):
             ('number', self.gf('django.db.models.fields.IntegerField')(default=1)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=500)),
             ('description', self.gf('django.db.models.fields.TextField')()),
+            ('location', self.gf('django.db.models.fields.CharField')(max_length=500, null=True)),
         ))
         db.send_create_signal('tvseries', ['Episode'])
 
@@ -51,6 +52,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Episode'},
             'description': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'location': ('django.db.models.fields.CharField', [], {'max_length': '500', 'null': 'True'}),
             'number': ('django.db.models.fields.IntegerField', [], {'default': '1'}),
             'season': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['tvseries.Season']"}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '500'})

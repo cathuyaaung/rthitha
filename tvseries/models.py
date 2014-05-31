@@ -5,7 +5,7 @@ from django.db import models
 class TVShow(models.Model):
 	name = models.CharField(max_length=500)
 	description = models.TextField()
-	poster = models.ImageField(upload_to = 'poster/', default = 'poster/None/no-img.jpg', 
+	poster = models.ImageField(upload_to = 'poster/', default = 'poster/None/no-img.jpg',
 		null=True)
 
 	def __unicode__(self):
@@ -16,7 +16,7 @@ class Season(models.Model):
 	number = models.IntegerField(default=1)
 
 	def __unicode__(self):
-		return '%s - S%s' % (self.tvshow.name, self.number)	
+		return '%s - S%s' % (self.tvshow.name, self.number)
 
 class Episode(models.Model):
 	season = models.ForeignKey(Season)
@@ -27,4 +27,4 @@ class Episode(models.Model):
 
 	def __unicode__(self):
 		return '%s - S%s - E%s - %s' % \
-				(self.season.tvshow.name, self.season.number, self.number, self.title )	
+				(self.season.tvshow.name, self.season.number, self.number, self.title )

@@ -4,7 +4,7 @@ from django.db import models
 class Movie(models.Model):
 	title = models.CharField(max_length=500)
 	location = models.CharField(max_length=500)
-	poster = models.ImageField(upload_to = 'poster/', default = 'poster/None/no-img.jpg', 
+	poster = models.ImageField(upload_to = 'poster/', default = 'poster/None/no-img.jpg',
 		null=True)
 	description = models.TextField(null=True, blank=True)
 	year = models.CharField(max_length=10, null=True, blank=True)
