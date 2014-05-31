@@ -22,17 +22,17 @@ DATABASES = {
         # 'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         # 'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
 
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'rthitha',
-        # 'USER': 'django_user',
-        # 'PASSWORD': 'thepassword'
-
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cizrage$rthitha',
-        'USER': 'cizrage',
-        'PASSWORD': 'ygmfromthuya',
-        'HOST': 'mysql.server',
-        'PORT': '',
+        'NAME': 'rthitha',
+        'USER': 'django_user',
+        'PASSWORD': 'thepassword'
+
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'cizrage$rthitha',
+        # 'USER': 'cizrage',
+        # 'PASSWORD': 'ygmfromthuya',
+        # 'HOST': 'mysql.server',
+        # 'PORT': '',
     }
 }
 
@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'rthitha.zmovies',
+    'rthitha.tvseries',
 )
 
 # A sample logging configuration. The only tangible logging
