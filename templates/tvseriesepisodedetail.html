@@ -1,28 +1,41 @@
 {% extends 'base.html' %}
 
-{% block title %}movies/{{ movie.title }}{% endblock %}
+{% block title %} - movies{% endblock %}
 
-{% block menu_block %}
-        <li><a href="/tvseries/{{tvshow.id}}" class="topmenu">
-            {{tvshow.name}}</a></li>
-        <li><a href="/tvseries/{{tvshow.id}}/{{season.id}}/" class="topmenu">
-            Season {{season.number}}</a></li>
-        <li><a href="/tvseries/{{tvshow.id}}/{{season.id}}/{{episode.id}}/" class="topmenu">
-            {{episode.title}}</a></li>            
+{% block shortnav_block %}
+	<div class"shortnav">
+		<div class="panel">
+			<a href="/tvseries/">tv series</a> / 		
+			<a href="/tvseries/{{tvshow.id}}">{{tvshow.name}}</a> / 
+			<a href="/tvseries/{{tvshow.id}}/{{season.id}}/" class="topmenu">
+			Season {{season.number}}</a> /
+			<a href="/tvseries/{{tvshow.id}}/{{season.id}}/{{episode.id}}/" class="topmenu">
+			{{episode.title}}</a>
+		</div>
+	</div>
 {% endblock %}
 
-{% block body_block %}
-        
-        {% if episode %}
-        <div align="center">
-        <h1>{{ episode.title }}</h1>
-        <iframe id="f" name="widget" src="{{ episode.location }}" width="852" height="510" style="float:center"></iframe>
-        </div>
-        {% endif %}
 
-        {% if err %}
-        <div>
-        <h1>{{ err }}</h1>
-        </div>
-        {% endif %}
+
+
+{% block player_block %}        
+	{% if episode %}
+	<div class="playerbox">
+		<h1>{{ episode.title }}</h1>
+		<div class="panel">
+		<iframe id="f" name="widget" src="{{ episode.location }}" width="852" height="510" style="float:center"></iframe>
+		</div>
+		<div class="description">
+			{{ episode.description }}
+		</div>
+	</div>
+	{% endif %}
+{% endblock %}
+
+
+{% block season_list_block %}
+{% endblock %}
+
+
+{% block movie_list_block %}
 {% endblock %}

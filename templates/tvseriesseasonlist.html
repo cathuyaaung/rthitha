@@ -1,24 +1,39 @@
 
 {% extends 'base.html' %}
 
-{% block title %}tvseries{% endblock %}
+{% block title %} - tvseries{% endblock %}
 
 {% block menu_block %}
-        <li><a href="/tvseries/{{tvshow.id}}" class="topmenu">
-            {{tvshow.name}}</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/movies/">Movies</a></li>
+                <li class="active"><a href="/tvseries/">TV Series</a></li>
 {% endblock %}
 
-{% block body_block %}
-    <div align="center">
+
+{% block shortnav_block %}
+	<div class"shortnav">
+		<div class="panel">
+			<a href="/tvseries/">tv series</a> / 
+			<a href="/tvseries/{{tvshow.id}}">{{tvshow.name}}</a>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block season_list_block %}
     {% if season_list %}
     {% for season in season_list %}
-    <div>        
-        <a href="/tvseries/{{season.tvshow.id}}/{{ season.id}}">
-        {{season.tvshow.name}} - Season {{ season.number }}</a>        
-    </div>
+            <div class"longbox">
+                <h1 class="cover-heading">// <a href="/tvseries/{{season.tvshow.id}}/{{ season.id}}">Season {{ season.number }}</a></h1>
+                <p class="lead"></p>
+            </div>
     {% endfor %}
     {% endif %}
-
-    </div>
 {% endblock %}
 
+
+{% block player_block %}   
+{% endblock %}
+
+{% block movie_list_block %}
+{% endblock %}
