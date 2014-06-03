@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Movie(models.Model):
@@ -15,6 +16,9 @@ class Movie(models.Model):
 	imdburl = models.CharField(max_length=500, null=True, blank=True)
 	imdbrating = models.CharField(max_length=500, null=True, blank=True)
 	rottentomatorating = models.CharField(max_length=500, null=True, blank=True)
+
+	created = models.DateTimeField(auto_now_add=True, default=datetime.datetime.now())
+	modified = models.DateTimeField(auto_now=True, default=datetime.datetime.now())
 
 	def __unicode__(self):
 		return '%s' % self.title
