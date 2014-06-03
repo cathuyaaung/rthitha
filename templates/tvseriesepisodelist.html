@@ -13,7 +13,8 @@
 {% block shortnav_block %}
     <div class"shortnav">
         <div class="panel">
-    <a href="/tvseries/">tv series</a> /                 
+            <a href="/">Home</a> /                 
+            <a href="/tvseries/">TV Series</a> /                 
             <a href="/tvseries/{{tvshow.id}}">{{tvshow.name}}</a> / 
             <a href="/tvseries/{{tvshow.id}}/{{season.id}}/" class="topmenu">
             Season {{season.number}}</a>
@@ -24,15 +25,20 @@
 
 
 {% block season_list_block %}
-    {% if episode_list %}
-
+    {% if episode_list %}    
+    <h1 class="cover-heading">// <a href="/tvseries/{{tvshow.id}}">Season {{season.number}}</a></h1>
     <div class="row">
         <div class"container">
-        <div class="col-md-4">
-            <div class="panel">     
- 
-                <a href="/tvseries/{{ tvshow.id }}"><img src="/media/{{tvshow.poster}}"></a>                   
-                <p class="lead">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a> </p>
+        <div class="col-md-4 boxdetail">
+            <div class="panel moviedetail">     
+                <div class="poster">                            
+                    <a class="posterimg" href="/tvseries/{{ tvshow.id }}"><img src="/media/{{tvshow.poster}}"></a>
+                </div>
+                <div class"iteminfo">
+                    <p class="title">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a> 
+                    </p>
+                    <p class="details">{{ tvshow.description }}</p>
+                </div>
             </div>  
         </div>
         </div>      
@@ -40,7 +46,7 @@
     
     {% for episode in episode_list %}
             <div class"longbox">
-                <h1 class="cover-heading">
+                <h1 class="cover-heading episode-list-title">
                 // <a href="/tvseries/{{ episode.season.tvshow.id }}/{{ episode.season.id}}/{{ episode.id}}">Episode {{episode.number}} - {{episode.title}}</a></h1>
                 <p class="lead"></p>
             </div>

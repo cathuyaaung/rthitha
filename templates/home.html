@@ -2,7 +2,7 @@
 
 {% block shortnav_block %}
 	<div class"shortnav">
-		<div class="panel">
+		<div class="panel nav">
 			<a href="/">Home</a> / 
 		</div>
 	</div>
@@ -12,25 +12,39 @@
 {% endblock %}
 
 {% block movie_list_block %}
+	<h1 class="cover-heading">// <a href="/movies/">Latest Movies</a></h1>
 	<div class="row">
-		<div class"container">
+		<div class"container">		
 		{% for movie in movie_list %}
-			<div class="col-md-4">
-				<div class="panel">				
-				<a href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>
-				<p class="lead">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a></p>
+			<div class="col-md-4 box">
+				<div class="panel movie">
+					<div class="poster">
+						<a class="posterimg" href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>
+					</div>				
+					<div class"iteminfo">
+						<p class="title">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a> ({{movie.year}})</p>
+						<p class="details"></p>
+					</div>
+				
 				</div>	
 			</div>
 		{% endfor %}
 		</div>		
 	</div>
+	<h1 class="cover-heading">// <a href="/tvseries/">Latest TV Series</a></h1>
 	<div class="row">
 		<div class"container">
 		{% for tvshow in tvseries_list %}
-		<div class="col-md-4">
-			<div class="panel">				            
-				<a href="/tvseries/{{ tvshow.id }}"><img src="/media/{{tvshow.poster}}"></a>		
-				<p class="lead">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a> </p>
+		<div class="col-md-4 box">
+			<div class="panel movie">
+				<div class="poster">				            
+					<a  class="posterimg" href="/tvseries/{{ tvshow.id }}"><img src="/media/{{tvshow.poster}}"></a>
+				</div>
+				<div class"iteminfo">
+					<p class="title">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a> 
+					</p>
+					<p class="details"></p>
+				</div>
 			</div>	
 		</div>
 		{% endfor %}

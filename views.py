@@ -12,7 +12,7 @@ def home(request):
     # The context contains information such as the client's machine details, for example.
     context = RequestContext(request)
 
-    movie_list = Movie.objects.all().order_by("-created","-id")
+    movie_list = Movie.objects.all().order_by("-created","-id")[:4]
     tvseries_list = TVShow.objects.all()
 
     # Construct a dictionary to pass to the template engine as its context.

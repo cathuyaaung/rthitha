@@ -31,6 +31,7 @@ def episodedetail(request, tvshow_id_url, season_id_url, episode_id_url):
     tvshow = TVShow.objects.get(id=tvshow_id_url)
     season = Season.objects.get(id=season_id_url)    
     episode = Episode.objects.get(id=episode_id_url)
-    context_dict = {'tvshow' : tvshow, 'season' : season, 'episode': episode}
+    episode_list = Episode.objects.filter(season=season_id_url).order_by('number')
+    context_dict = {'tvshow' : tvshow, 'season' : season, 'episode': episode, 'episode_list':episode_list}
     return render_to_response('tvseriesepisodedetail.html', context_dict, context)    
 

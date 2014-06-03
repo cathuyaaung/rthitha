@@ -92,14 +92,7 @@ body {
   border-bottom-color: #fff;
 }
 
-@media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
-}
+
 
 /*
  * Cover
@@ -128,8 +121,10 @@ body {
 
 /*
  * Affix and center
+ * @media
  */
 
+/*@media (min-width: 768px) {*/
 @media (min-width: 768px) {
   /* Pull out the header and footer */
   .masthead {
@@ -150,7 +145,19 @@ body {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+    width: 100%; 
+    /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
   }
 }
 
@@ -162,9 +169,29 @@ body {
   }
 }
 
+
+
+
+
+
+
 /*
  * Grid
  */
+.poster img{
+	height:300px;
+	width:200px;
+}
+
+.title
+{
+  font-size: 18px;
+}
+
+.shortnavbox
+{
+	height:20px;
+}
 
 .row
 {
@@ -174,6 +201,42 @@ body {
 
 .panel
 {
-    background:rgba(255,255,255,0.05);
-    padding: 5px;
+  background:rgba(255,255,255,0.05);
+  padding: 5px;
+}
+
+.nav
+{
+
+}
+
+.movie
+{
+  height:450px;
+  width:210px;
+}
+
+.moviedetail
+{
+	height:320px;
+	width:860px;
+}
+
+.box
+{  
+	width:215px;
+}
+
+.poster
+{
+	float:left;
+	padding-right:5px;
+}
+.iteminfo
+{
+	float:right;
+}
+.episode-list-title
+{
+	font-size: 16px;
 }
