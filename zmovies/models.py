@@ -20,6 +20,8 @@ class Movie(models.Model):
 	created = models.DateTimeField(auto_now_add=True, default=datetime.datetime.now())
 	modified = models.DateTimeField(auto_now=True, default=datetime.datetime.now())
 
+	active = models.BooleanField(default=True)
+
 	def __unicode__(self):
 		return '%s' % self.title
 
