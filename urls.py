@@ -26,9 +26,14 @@ urlpatterns = patterns('',
 
     # /tvseries
     url(r'^(?i)tvseries/', include('rthitha.tvseries.urls')),    
+
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': settings.DEBUG}),
 )
 
 urlpatterns += patterns('',(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}))
 
 
 urlpatterns += staticfiles_urlpatterns()
+
+handler404 = views.custom_404
+handler500 = views.custom_500

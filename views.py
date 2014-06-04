@@ -23,3 +23,9 @@ def home(request):
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
     return render_to_response('home.html', context_dict, context)
+
+def custom_404(request):
+	return render_to_response('404.html')
+
+def custom_500(request):
+	return render_to_response('500.html')
