@@ -12,7 +12,7 @@ def home(request):
     # The context contains information such as the client's machine details, for example.
     context = RequestContext(request)
 
-    movie_list = Movie.objects.all().order_by("-created","-id")
+    movie_list = Movie.objects.filter(active=True).order_by("-created","-id")
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
     context_dict = {'movie_list': movie_list}
@@ -25,6 +25,6 @@ def home(request):
 def moviedetail(request, movie_title_url):
     context = RequestContext(request)
     movie = Movie.objects.get(id=movie_title_url)        
-    movie_list = Movie.objects.all().order_by("-created","-id")[:4]
+    movie_list = Movie.objects.filter(active=True).order_by("-created","-id")[:4]
     context_dict = {'movie':movie, 'movie_list':movie_list}
     return render_to_response('moviedetail.html', context_dict, context)
