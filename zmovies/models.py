@@ -23,5 +23,8 @@ class Movie(models.Model):
 	active = models.BooleanField(default=True)
 
 	def __unicode__(self):
-		return '%s' % self.title
+		if self.active==True:
+			return '%s' % (self.title,)
+		else:
+			return '%s [INACTIVE]' % (self.title,)
 

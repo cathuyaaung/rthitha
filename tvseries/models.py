@@ -10,7 +10,10 @@ class TVShow(models.Model):
 	active = models.BooleanField(default=True)
 
 	def __unicode__(self):
-		return '%s' % (self.name)
+		if self.active==True:
+			return '%s' % (self.name,)
+		else:
+			return '%s [INACTIVE]' % (self.name,)
 
 class Season(models.Model):
 	tvshow = models.ForeignKey(TVShow)
@@ -18,8 +21,11 @@ class Season(models.Model):
 
 	active = models.BooleanField(default=True)
 
-	def __unicode__(self):
-		return '%s - S%s' % (self.tvshow.name, self.number)
+	def __unicode__(self):		
+		if self.active==True:
+			return '%s - S%s' % (self.tvshow.name, self.number)
+		else:
+			return '%s - S%s [INACTIVE]' % (self.tvshow.name, self.number)
 
 class Episode(models.Model):
 	season = models.ForeignKey(Season)
@@ -31,5 +37,10 @@ class Episode(models.Model):
 	active = models.BooleanField(default=True)
 
 	def __unicode__(self):
-		return '%s - S%s - E%s - %s' % \
+		if self.active==True:
+			return '%s - S%s - E%s - %s' % \
 				(self.season.tvshow.name, self.season.number, self.number, self.title )
+		else:
+			return '%s - S%s - E%s - %s [INACTIVE]' % \
+				(self.season.tvshow.name, self.season.number, self.number, self.title )
+
