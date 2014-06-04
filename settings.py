@@ -8,7 +8,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('rthitha', 'rthithacom@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -22,23 +22,23 @@ DATABASES = {
         # 'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         # 'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
 
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'rthitha',
-        # 'USER': 'django_user',
-        # 'PASSWORD': 'thepassword'
+		# 'ENGINE': 'django.db.backends.mysql',
+		# 'NAME': 'rthitha',
+		# 'USER': 'django_user',
+		# 'PASSWORD': 'thepassword'
 
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cizrage$rthitha',
-        'USER': 'cizrage',
-        'PASSWORD': 'ygmfromthuya',
-        'HOST': 'mysql.server',
-        'PORT': '',
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'cizrage$rthitha',
+		'USER': 'cizrage',
+		'PASSWORD': 'ygmfromthuya',
+		'HOST': 'mysql.server',
+		'PORT': '',
     }
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.3/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['127.0.0.1','localhost','www.rthitha.com']
+ALLOWED_HOSTS = ['www.rthitha.com']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -79,7 +79,7 @@ MEDIA_URL = '/media/'
 # Example: "/home/media/media.lawrence.com/static/"
 # STATIC_ROOT = '/home/cizrage/rthitha/static'
 # STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'media')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -175,3 +175,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    print u'File local_settings.py is not found. Continuing with production settings.'
