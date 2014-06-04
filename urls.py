@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.conf import settings
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rthitha import views
 
 # Uncomment the next two lines to enable the admin:
@@ -29,3 +29,6 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}))
+
+
+urlpatterns += staticfiles_urlpatterns()
