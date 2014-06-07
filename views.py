@@ -29,3 +29,11 @@ def logout(request):
 	context_dict = {'movie_list': movie_list, 'tvseries_list': tvseries_list}
 	#return render_to_response('home.html', context_dict, context)
 	return HttpResponseRedirect(request.GET.get('next', '/'))
+
+def test(request,movie_title_url):
+	context = RequestContext(request)
+	movie = Movie.objects.get(id=movie_title_url)		
+	movie_list = Movie.objects.filter(active=True).order_by("-created","-id")[:4]		
+	context_dict = {'movie':movie, 'movie_list':movie_list}
+	response = render_to_response('test.html', context_dict, context)
+	return response

@@ -11,6 +11,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'', include('social_auth.urls')),
 	url(r'^logout/$', 'rthitha.views.logout'),
+	url(r'^test/(?P<movie_title_url>\w+)/$', views.test, name='test'),
     # Examples:
     #url(r'^$', 'rthitha.views.home', name='home'),
     # url(r'^rthitha/', include('rthitha.foo.urls')),
