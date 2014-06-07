@@ -1,5 +1,6 @@
 # Django settings for rthitha project.
 import os
+from django.conf import global_settings
 #import os.path.dirname as d, sys.path as p; p.insert(0,d(d(__file__)))
 
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
@@ -79,7 +80,7 @@ MEDIA_URL = '/media/'
 # Example: "/home/media/media.lawrence.com/static/"
 # STATIC_ROOT = '/home/cizrage/rthitha/static'
 # STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'media')
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -96,7 +97,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     # "E:/Git/rthitha/static",
-    os.path.join(PROJECT_PATH, 'static'),
+    # os.path.join(PROJECT_PATH, 'static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -151,7 +152,9 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'rthitha.zmovies',
     'rthitha.tvseries',
+    'social_auth',
 )
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -176,7 +179,91 @@ LOGGING = {
     }
 }
 
+
+
+
+AUTHENTICATION_BACKENDS = (
+	# 'social_auth.backends.twitter.TwitterBackend',
+	# 'social_auth.backends.facebook.FacebookBackend',
+	# 'social_auth.backends.google.GoogleOAuthBackend',
+	'social_auth.backends.google.GoogleOAuth2Backend',
+	# 'social_auth.backends.google.GoogleBackend',
+	# 'social_auth.backends.yahoo.YahooBackend',
+	# 'social_auth.backends.browserid.BrowserIDBackend',
+	# 'social_auth.backends.contrib.linkedin.LinkedinBackend',
+	# 'social_auth.backends.contrib.disqus.DisqusBackend',
+	# 'social_auth.backends.contrib.livejournal.LiveJournalBackend',
+	# 'social_auth.backends.contrib.orkut.OrkutBackend',
+	# 'social_auth.backends.contrib.foursquare.FoursquareBackend',
+	# 'social_auth.backends.contrib.github.GithubBackend',
+	# 'social_auth.backends.contrib.vk.VKOAuth2Backend',
+	# 'social_auth.backends.contrib.live.LiveBackend',
+	# 'social_auth.backends.contrib.skyrock.SkyrockBackend',
+	# 'social_auth.backends.contrib.yahoo.YahooOAuthBackend',
+	# 'social_auth.backends.contrib.readability.ReadabilityBackend',
+	# 'social_auth.backends.contrib.fedora.FedoraBackend',
+	# 'social_auth.backends.OpenIDBackend',
+	'django.contrib.auth.backends.ModelBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+	# 'social_auth.context_processors.social_auth_by_name_backends',
+	# 'social_auth.context_processors.social_auth_backends',
+	'social_auth.context_processors.social_auth_by_type_backends',
+	# 'social_auth.context_processors.social_auth_login_redirect',
+	'django.contrib.auth.context_processors.auth',
+	'django.core.context_processors.request',
+)
+
+SOCIAL_AUTH_PIPELINE = (
+	'social_auth.backends.pipeline.social.social_auth_user',
+	'social_auth.backends.pipeline.social.associate_user',
+	'social_auth.backends.pipeline.user.get_username',
+	'social_auth.backends.pipeline.user.create_user',    
+	'social_auth.backends.pipeline.social.load_extra_data',
+	'social_auth.backends.pipeline.user.update_user_details'
+)
+
+#SOCIAL_AUTH_ENABLED_BACKENDS = ('google')
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+SOCIAL_AUTH_UID_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+
+# TWITTER_CONSUMER_KEY=''
+# TWITTER_CONSUMER_SECRET=''
+# FACEBOOK_APP_ID=''
+# FACEBOOK_API_SECRET=''
+# LINKEDIN_CONSUMER_KEY=''
+# LINKEDIN_CONSUMER_SECRET=''
+# ORKUT_CONSUMER_KEY=''
+# ORKUT_CONSUMER_SECRET=''
+# GOOGLE_CONSUMER_KEY=''
+# GOOGLE_CONSUMER_SECRET=''
+GOOGLE_OAUTH2_CLIENT_ID='310327175751-04b1pdvkbt2vcommadmbv2e881o0h5um.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET='B3mqNT8nipDN-J5lSkfN2Rs-'
+# FOURSQUARE_CONSUMER_KEY=''
+# FOURSQUARE_CONSUMER_SECRET=''
+# VK_APP_ID=''
+# VK_API_SECRET=''
+# LIVE_CLIENT_ID=''
+# LIVE_CLIENT_SECRET=''
+# SKYROCK_CONSUMER_KEY=''
+# SKYROCK_CONSUMER_SECRET=''
+# YAHOO_CONSUMER_KEY=''
+# YAHOO_CONSUMER_SECRET=''
+# READABILITY_CONSUMER_SECRET=''
+# READABILITY_CONSUMER_SECRET=''
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/private/'
+LOGIN_ERROR_URL = '/login-error/'
+
+
 try:
     from local_settings import *
 except ImportError:
     print u'File local_settings.py is not found. Continuing with production settings.'
+

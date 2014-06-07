@@ -20,15 +20,6 @@
 		<!-- Custom styles for this template -->
 		<link href="{{ STATIC_URL }}css/rthitha.css" rel="stylesheet">
 
-		<!-- Just for debugging purposes. Don't actually copy this line! -->
-		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -41,29 +32,10 @@
     </head>
 
     <body>
-
-<!--
-        <div>
-            <ul>
-                <li><a href="/" class="topmenu">rthitha</a></li>
-                <li><a href="/movies/" class="topmenu">movies</a></li>
-                <li><a href="/tvseries/" class="topmenu">tvseries</a></li>
-            </ul>
-
-
-        </div>
-        
-    	<div>
-        	{% block body_block %}{% endblock %}
-
-    	<div>
--->    	
-
     <div class="site-wrapper">
-
       <div class="site-wrapper-inner">
-
         <div class="cover-container">
+
 
           <div class="masthead clearfix">
             <div class="inner">
@@ -72,84 +44,40 @@
 				{% block menu_block %}
 				<li class="active"><a href="/">Home</a></li>
 				<li><a href="/movies/">Movies</a></li>
-				<li><a href="/tvseries/">TV Series</a></li>
-				{% endblock %}
+				<li><a href="/tvseries/">TV Series</a></li>				
+				{% endblock %}				
               </ul>
             </div>
           </div>
 
+
           <div class="inner cover">
 			{% block shortnav_block %}
-          	<div class"shortnav">
-          		<div class="panel shortnavbox">
-				<a href="#">It's Always Sunny in Philadelphia</a> / <a href="#">Season 9</a> / <a href="#">Episode 1 - The Gang Broke Dee</a>
-				</div>
-          	</div>
 			{% endblock %}
 
 			{% block player_block %}
-          	<div class="playerbox">
-          		<h1>The Gang Broke Dee</h1>
-          		<div class="panel">
-          		<iframe id="f" name="widget" src="https://docs.google.com/file/d/0B1Dfa5I-Le76TDVDWnJMY0xncDQ/preview" width="852" height="510" style="float:center"></iframe>
-          		</div>
-          		<div class="description">
-          			Dennis actually fears that Dee really has hit rock bottom. With Frank's help, the gang comes up with an elaborate plan to cheer Dee up, or did they?
-          		</div>
-          	</div>
 			{% endblock %}
 
           	{% block movie_list_block %}
-          	<div class="row">
-          		<div class"container">
-
-	          		<div class="col-md-4">
-	          			<div class="panel">			            
-				            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-			            </div>	
-	          		</div>
-	          		
-    		    </div>		
-          	</div>
 			{% endblock %}
-
 			
-          	{% block season_list_block %}
-          	<div class"longbox">
-	            <h1 class="cover-heading">// <a href="#">Gravity</a></h1>
-	            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            </div>
-
-          	<div class"longbox">
-	            <h1 class="cover-heading">// <a href="#">Gravity</a></h1>
-	            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            </div>
-
-          	<div class"longbox">
-	            <h1 class="cover-heading">// <a href="#">Gravity</a></h1>
-	            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            </div>            
+          	{% block season_list_block %}      
             {% endblock %}
-
-
           </div>
-
 
 
           <div class="mastfoot">
             <div class="inner">
-              <p><i>“Never forget what you are, for surely the world will not. Make it your strength. Then it can never be your weakness. Armour yourself in it, and it will never be used to hurt you.”<br> 
+              <p><i>“There's a monkey in the jungle watching a vapour trail.
+              Caught up in the conflict between his brain and his tail.”<br> 
               </i>
 			  </p>
             </div>
           </div>
 
 
-
         </div>
-
       </div>
-
     </div>
 
 

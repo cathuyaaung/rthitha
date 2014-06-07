@@ -2,12 +2,15 @@ from django.conf.urls.defaults import patterns, include, url
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rthitha import views
+from django.views.generic.simple import redirect_to
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'', include('social_auth.urls')),
+	url(r'^logout/$', 'rthitha.views.logout'),
     # Examples:
     #url(r'^$', 'rthitha.views.home', name='home'),
     # url(r'^rthitha/', include('rthitha.foo.urls')),
@@ -19,7 +22,7 @@ urlpatterns = patterns('',
 	url(r'^$', views.home, name='home'),
 
     # Uncomment the next line to enable the admin:
-    url(r'^(?i)admin/', include(admin.site.urls)),		
+    url(r'^admin/', include(admin.site.urls)),		
 
     # /movies
 	url(r'^(?i)movies/', include('rthitha.zmovies.urls')),

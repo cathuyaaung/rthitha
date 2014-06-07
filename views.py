@@ -4,28 +4,28 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from rthitha.zmovies.models import Movie
 from rthitha.tvseries.models import TVShow
+from django.contrib.auth import logout as auth_logout
+from django.http import HttpResponseRedirect, HttpResponse
 
 def home(request):
-	#return HttpResponse("Rango says hello world!")
-
-    # Request the context of the request.
-    # The context contains information such as the client's machine details, for example.
-    context = RequestContext(request)
-
-    movie_list = Movie.objects.filter(active=True).order_by("-created","-id")[:4]
-    tvseries_list = TVShow.objects.filter(active=True)
-
-    # Construct a dictionary to pass to the template engine as its context.
-    # Note the key boldmessage is the same as {{ boldmessage }} in the template!
-    context_dict = {'movie_list': movie_list, 'tvseries_list': tvseries_list}
-
-    # Return a rendered response to send to the client.
-    # We make use of the shortcut function to make our lives easier.
-    # Note that the first parameter is the template we wish to use.
-    return render_to_response('home.html', context_dict, context)
+	context = RequestContext(request)
+	movie_list = Movie.objects.filter(active=True).order_by("-created","-id")[:4]
+	tvseries_list = TVShow.objects.filter(active=True)
+	context_dict = {'movie_list': movie_list, 'tvseries_list': tvseries_list}
+	return render_to_response('home.html', context_dict, context)
 
 def custom_404(request):
 	return render_to_response('404.html')
 
 def custom_500(request):
 	return render_to_response('500.html')
+
+def logout(request):
+	"""Logs out user"""
+	auth_logout(request)
+	context = RequestContext(request)
+	movie_list = Movie.objects.filter(active=True).order_by("-created","-id")[:4]
+	tvseries_list = TVShow.objects.filter(active=True)
+	context_dict = {'movie_list': movie_list, 'tvseries_list': tvseries_list}
+	#return render_to_response('home.html', context_dict, context)
+	return HttpResponseRedirect(request.GET.get('next', '/'))
