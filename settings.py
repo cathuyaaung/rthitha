@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 import rthithasite
 
@@ -91,7 +92,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     # PROJECT_PATH + '/templates/',
-    os.path.join(BASE_DIR,'rthitha/','rthithasite/' 'templates')
+    os.path.join(PROJECT_PATH,'rthithasite/' 'templates')
 )
 
 try:
