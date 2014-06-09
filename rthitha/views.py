@@ -2,8 +2,8 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from rthitha.zmovies.models import Movie
-from rthitha.tvseries.models import TVShow
+from zmovies.models import Movie
+from tvseries.models import TVShow
 from django.contrib.auth import logout as auth_logout
 from django.http import HttpResponseRedirect, HttpResponse
 
@@ -23,12 +23,12 @@ def custom_500(request):
 def logout(request):
 	"""Logs out user"""
 	auth_logout(request)
-	context = RequestContext(request)
-	movie_list = Movie.objects.filter(active=True).order_by("-created","-id")[:4]
-	tvseries_list = TVShow.objects.filter(active=True)
-	context_dict = {'movie_list': movie_list, 'tvseries_list': tvseries_list}
-	#return render_to_response('home.html', context_dict, context)
 	return HttpResponseRedirect(request.GET.get('next', '/'))
+
+def loginerror(request):
+	"""Login Error"""	
+	return HttpResponseRedirect(request.GET.get('next', '/'))
+
 
 def test(request,movie_title_url):
 	context = RequestContext(request)
