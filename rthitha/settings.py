@@ -1,5 +1,5 @@
 """
-Django settings for r16 project.
+Django settings for rthitha project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -47,9 +47,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'r16.urls'
+ROOT_URLCONF = 'rthitha.urls'
 
-WSGI_APPLICATION = 'r16.wsgi.application'
+WSGI_APPLICATION = 'rthitha.wsgi.application'
 
 
 # Database
