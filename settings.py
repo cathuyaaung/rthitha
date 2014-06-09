@@ -49,7 +49,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'rthitha.urls'
 
-WSGI_APPLICATION = 'rthitha.wsgi.application'
+#WSGI_APPLICATION = 'rthitha.wsgi.application'
 
 
 # Database
