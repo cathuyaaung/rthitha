@@ -30,6 +30,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['www.rthitha.com']
 
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Application definition
 
@@ -101,7 +102,7 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_PATH,'rthithasite/' 'templates')
 )
 
-
+MEDIA_ROOT = os.path.join(PROJECT_PATH,'rthithasite/' 'media')
 
 
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
@@ -139,16 +140,16 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 
 #AUTH_USER_MODEL = 'zmovies.Employee'
 
-SOCIAL_AUTH_PIPELINE = (
-	'social_auth.backends.pipeline.social.social_auth_user',
-	#'social_auth.backends.pipeline.associate.associate_by_email',
-	'social_auth.backends.pipeline.user.get_username',
-	'social_auth.backends.pipeline.user.create_user',
-	'social_auth.backends.pipeline.social.associate_user',
-	'social_auth.backends.pipeline.social.load_extra_data',
-	'social_auth.backends.pipeline.user.update_user_details',
-	'rthithasite.pipeline.get_user_avatar',
-)
+#SOCIAL_AUTH_PIPELINE = (
+#	'social_auth.backends.pipeline.social.social_auth_user',
+#	#'social_auth.backends.pipeline.associate.associate_by_email',
+#	'social_auth.backends.pipeline.user.get_username',
+#	'social_auth.backends.pipeline.user.create_user',
+#	'social_auth.backends.pipeline.social.associate_user',
+#	'social_auth.backends.pipeline.social.load_extra_data',
+#	'social_auth.backends.pipeline.user.update_user_details',
+#	#'rthithasite.pipeline.get_user_avatar',
+#)
 
 #AUTH_PROFILE_MODULE= 'UserProfile'
 
