@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from rthitha import views
+from rthithasite import views
 #from django.views.generic.simple import redirect_to
 
 # Uncomment the next two lines to enable the admin:
@@ -11,11 +11,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'', include('social_auth.urls')),
-	url(r'^logout/$', 'rthitha.views.logout'),
+	url(r'^logout/$', 'rthithasite.views.logout'),
 	url(r'^test/(?P<movie_title_url>\w+)/$', views.test, name='test'),
 
 
-	#url(r'^login-error/$', 'rthitha.views.loginerror'),
+	#url(r'^login-error/$', 'rthithasite.views.loginerror'),
 
     # home
 	url(r'^$', views.home, name='home'),
