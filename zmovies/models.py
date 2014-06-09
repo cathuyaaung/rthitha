@@ -28,3 +28,12 @@ class Movie(models.Model):
 		else:
 			return '%s [INACTIVE]' % (self.title,)
 
+from django.contrib.auth.models import User    
+
+class UserProfile(models.Model):
+	user = models.OneToOneField(User)
+	avatar = models.ImageField(upload_to = 'avatar/', default = 'poster/None/no-img.jpg',
+		null=True)
+
+	def __unicode__(self):
+		return '%s' % (self.user.username,)

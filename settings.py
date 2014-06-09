@@ -147,7 +147,7 @@ SOCIAL_AUTH_PIPELINE = (
 	'social_auth.backends.pipeline.social.associate_user',
 	'social_auth.backends.pipeline.social.load_extra_data',
 	'social_auth.backends.pipeline.user.update_user_details',
-	'rthitha.pipeline.get_user_avatar',
+	'rthithasite.pipeline.get_user_avatar',
 )
 
 #AUTH_PROFILE_MODULE= 'UserProfile'

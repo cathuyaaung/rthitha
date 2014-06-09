@@ -6,6 +6,18 @@
 	<li><a href="/">Home</a></li>
 	<li class="active"><a href="/movies/">Movies</a></li>
 	<li><a href="/tvseries/">TV Series</a></li>
+	{% if user.is_authenticated %}
+	<li>
+		<a href="">
+		<img height="20px" width="20px" src="/media/{{userProfile.avatar}}">
+		{{ user.username }}</a>
+		<a href="/logout/?next={{request.path}}">Logout</a>
+	</li>
+	{% else %}
+	<li><a href="{%url 'socialauth_begin' 'google-oauth2'%}?next={{ request.path }}">
+			Login
+		</a></li>	
+	{% endif %}		
 {% endblock %}
 
 
