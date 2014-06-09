@@ -30,7 +30,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['www.rthitha.com']
 
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+#ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Application definition
 
