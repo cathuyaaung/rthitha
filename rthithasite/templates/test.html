@@ -11,38 +11,33 @@
 		<a href="">
 		<img height="20px" width="20px" src="/media/{{userProfile.avatar}}">
 		{{ user.username }}</a>
-		<a href="/logout/?next={{request.path}}">Logout</a>
+		<a href="/logout/?next={{ request.path }}">Logout</a>
 	</li>
 	{% else %}
 	<li><a href="{%url 'socialauth_begin' 'google-oauth2'%}?next={{ request.path }}">
 			Login
-		</a></li>	
-	{% endif %}		
+		</a></li>
+	{% endif %}
 {% endblock %}
 
 
 {% block shortnav_block %}
 	<div class"shortnav">
 		<div class="panel">
-			<a href="/">Home</a> / 
-			<a href="/movies/">Movies</a> / 
-			<a href="/movies/{{ movie.id }}">{{ movie.title }}</a> / 
+			<a href="/">Home</a> /
+			<a href="/movies/">Movies</a> /
+			<a href="/movies/{{ movie.id }}">{{ movie.title }}</a> /
 		</div>
 	</div>
 {% endblock %}
 
 
-{% block player_block %}        
+{% block player_block %}
 {% if movie %}
 	<div class="playerbox">
 		<h1>{{ movie.title }}</h1>
 		<div class="panel">
-		<video width="852" height="510" controls>
-  		<source src="https://googledrive.com/host/0Bwc090OOyn59Qy1vNmpORm1XNFU/Thor.The.Dark.World.2013.1080p.BluRay.x264.YIFY.mp4" type="video/mp4">
-		<track src="https://googledrive.com/host/0Bwc090OOyn59Qy1vNmpORm1XNFU/Thor.The.Dark.World.2013.1080p.BluRay.x264-YIFY.vtt" kind="subtitle" srclang="en-US" label="English" />	
-		</video>	
 		<iframe id="f" name="widget" src="{{ movie.location }}" width="852" height="510" style="float:center"></iframe>
-
 		</div>
 	</div>
 
@@ -52,7 +47,7 @@
 				<div class="panel moviedetail">
 					<div class="poster">
 						<a class="posterimg" href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>
-					</div>				
+					</div>
 					<div class"iteminfo">
 						<p class="title">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a> ({{movie.year}})</p>
 						<p class="details">
@@ -61,29 +56,29 @@
 							</div>
 						</p>
 					</div>
-				</div>	
+				</div>
 			</div>
-		</div>		
+		</div>
 	</div>
 	<h1 class="cover-heading">// <a href="/movies/">Latest Movies</a></h1>
 	<div class="row">
-		<div class"container">		
+		<div class"container">
 		{% for movie in movie_list %}
 			<div class="col-md-4 box">
 				<div class="panel movie">
 					<div class="poster">
 						<a class="posterimg" href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>
-					</div>				
+					</div>
 					<div class"iteminfo">
 						<p class="title">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a> ({{movie.year}})</p>
 						<p class="details">
 
 						</p>
-					</div>				
-				</div>	
+					</div>
+				</div>
 			</div>
 		{% endfor %}
-		</div>		
+		</div>
 	</div>
 {% endif %}
 {% endblock %}

@@ -24,7 +24,7 @@ import rthithasite
 SECRET_KEY = 'rfj)_%md*4!g)l77*!-w-qs-*fq&ik5)n(@3&axdbne2dj%q@m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -105,65 +105,67 @@ TEMPLATE_DIRS = (
 MEDIA_ROOT = os.path.join(PROJECT_PATH,'rthithasite/' 'media')
 
 
-SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
-
-
 AUTHENTICATION_BACKENDS = (
-	'social_auth.backends.twitter.TwitterBackend',
-	'social_auth.backends.facebook.FacebookBackend',
-	'social_auth.backends.google.GoogleOAuthBackend',
-	'social_auth.backends.google.GoogleOAuth2Backend',
-	'social_auth.backends.google.GoogleBackend',
-	'social_auth.backends.yahoo.YahooBackend',
-	'social_auth.backends.browserid.BrowserIDBackend',
-	'social_auth.backends.contrib.linkedin.LinkedinBackend',
-	'social_auth.backends.contrib.disqus.DisqusBackend',
-	'social_auth.backends.contrib.livejournal.LiveJournalBackend',
-	'social_auth.backends.contrib.orkut.OrkutBackend',
-	'social_auth.backends.contrib.foursquare.FoursquareBackend',
-	'social_auth.backends.contrib.github.GithubBackend',
-	'social_auth.backends.contrib.vk.VKOAuth2Backend',
-	'social_auth.backends.contrib.live.LiveBackend',
-	'social_auth.backends.contrib.skyrock.SkyrockBackend',
-	'social_auth.backends.contrib.yahoo.YahooOAuthBackend',
-	'social_auth.backends.contrib.readability.ReadabilityBackend',
-	'social_auth.backends.contrib.fedora.FedoraBackend',
-	'social_auth.backends.OpenIDBackend',
-	'django.contrib.auth.backends.ModelBackend',
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuthBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.yahoo.YahooBackend',
+    'social_auth.backends.browserid.BrowserIDBackend',
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'social_auth.backends.contrib.disqus.DisqusBackend',
+    'social_auth.backends.contrib.livejournal.LiveJournalBackend',
+    'social_auth.backends.contrib.orkut.OrkutBackend',
+    'social_auth.backends.contrib.foursquare.FoursquareBackend',
+    'social_auth.backends.contrib.github.GithubBackend',
+    'social_auth.backends.contrib.vk.VKOAuth2Backend',
+    'social_auth.backends.contrib.live.LiveBackend',
+    'social_auth.backends.contrib.skyrock.SkyrockBackend',
+    'social_auth.backends.contrib.yahoo.YahooOAuthBackend',
+    'social_auth.backends.contrib.readability.ReadabilityBackend',
+    'social_auth.backends.contrib.fedora.FedoraBackend',
+    'social_auth.backends.OpenIDBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-	'social_auth.context_processors.social_auth_by_type_backends',
-	'django.contrib.auth.context_processors.auth',
-	'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.contrib.messages.context_processors.messages',
+    'social_auth.context_processors.social_auth_by_type_backends',
+    'django.core.context_processors.request',
 )
-
-#AUTH_USER_MODEL = 'zmovies.Employee'
-
-#SOCIAL_AUTH_PIPELINE = (
-#	'social_auth.backends.pipeline.social.social_auth_user',
-#	#'social_auth.backends.pipeline.associate.associate_by_email',
-#	'social_auth.backends.pipeline.user.get_username',
-#	'social_auth.backends.pipeline.user.create_user',
-#	'social_auth.backends.pipeline.social.associate_user',
-#	'social_auth.backends.pipeline.social.load_extra_data',
-#	'social_auth.backends.pipeline.user.update_user_details',
-#	#'rthithasite.pipeline.get_user_avatar',
-#)
-
-#AUTH_PROFILE_MODULE= 'UserProfile'
-
-SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 
 GOOGLE_OAUTH2_CLIENT_ID='310327175751-vafscehg8fatr0879lijimodg8cnc1m1.apps.googleusercontent.com'
 GOOGLE_OAUTH2_CLIENT_SECRET='r1JCpHS_kf1cUghRt6SluNNf'
 
+#SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+#SOCIAL_AUTH_UID_LENGTH = 16
+#SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+#SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
+#SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
+#SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    #'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.user.get_username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details',
+    'rthithasite.pipeline.get_user_avatar',
+)
+
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/private/'
 LOGIN_ERROR_URL = '/login-error/'
-LOGIN_ERROR_MESSAGE = True
-
 
 
 
