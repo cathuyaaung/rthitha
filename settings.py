@@ -58,8 +58,12 @@ ROOT_URLCONF = 'rthithasite.urls'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'cizrage$rthitha',
+		'USER': 'cizrage',
+		'PASSWORD': 'ygmfromthuya',
+		'HOST': 'mysql.server',
+		'PORT': '',
     }
 }
 
@@ -81,3 +85,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    # PROJECT_PATH + '/templates/',
+    os.path.join(BASE_DIR,'rthitha/','rthithasite/' 'templates')
+)
+
+try:
+    from local_settings import *
+except ImportError:
+    print u'File local_settings.py is not found. Continuing with production settings.'

@@ -1,5 +1,5 @@
-from django.conf.urls.defaults import patterns, include, url
-from rthitha.tvseries import views
+from django.conf.urls import patterns, include, url
+from tvseries import views
 
 urlpatterns = patterns('',
 	url(r'^$', views.tvserieslist, name='tvserieslist'),
