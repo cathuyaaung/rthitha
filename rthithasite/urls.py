@@ -10,8 +10,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'', include('social_auth.urls')),
-	url(r'^logout/$', 'rthithasite.views.logout'),
+    #url(r'', include('social_auth.urls')),
+	#url(r'^logout/$', 'rthithasite.views.logout'),
+	
 	url(r'^test/(?P<movie_title_url>\w+)/$', views.test, name='test'),
 
 

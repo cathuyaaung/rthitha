@@ -34,17 +34,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'south',
-    'zmovies',
-    'tvseries',
-    'social_auth',
-    'debug_toolbar',
+	'django.contrib.admin',
+	'django.contrib.auth',
+	'django.contrib.contenttypes',
+	'django.contrib.sessions',
+	'django.contrib.messages',
+	'django.contrib.staticfiles',
+	'south',
+	'zmovies',
+	'tvseries',
+	'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,66 +100,6 @@ TEMPLATE_DIRS = (
     # PROJECT_PATH + '/templates/',
     os.path.join(PROJECT_PATH,'rthithasite/' 'templates')
 )
-
-
-SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
-
-
-AUTHENTICATION_BACKENDS = (
-	'social_auth.backends.twitter.TwitterBackend',
-	'social_auth.backends.facebook.FacebookBackend',
-	'social_auth.backends.google.GoogleOAuthBackend',
-	'social_auth.backends.google.GoogleOAuth2Backend',
-	'social_auth.backends.google.GoogleBackend',
-	'social_auth.backends.yahoo.YahooBackend',
-	'social_auth.backends.browserid.BrowserIDBackend',
-	'social_auth.backends.contrib.linkedin.LinkedinBackend',
-	'social_auth.backends.contrib.disqus.DisqusBackend',
-	'social_auth.backends.contrib.livejournal.LiveJournalBackend',
-	'social_auth.backends.contrib.orkut.OrkutBackend',
-	'social_auth.backends.contrib.foursquare.FoursquareBackend',
-	'social_auth.backends.contrib.github.GithubBackend',
-	'social_auth.backends.contrib.vk.VKOAuth2Backend',
-	'social_auth.backends.contrib.live.LiveBackend',
-	'social_auth.backends.contrib.skyrock.SkyrockBackend',
-	'social_auth.backends.contrib.yahoo.YahooOAuthBackend',
-	'social_auth.backends.contrib.readability.ReadabilityBackend',
-	'social_auth.backends.contrib.fedora.FedoraBackend',
-	'social_auth.backends.OpenIDBackend',
-	'django.contrib.auth.backends.ModelBackend',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-	'social_auth.context_processors.social_auth_by_type_backends',
-	'django.contrib.auth.context_processors.auth',
-	'django.core.context_processors.request',
-)
-
-#AUTH_USER_MODEL = 'zmovies.Employee'
-
-SOCIAL_AUTH_PIPELINE = (
-	'social_auth.backends.pipeline.social.social_auth_user',
-	#'social_auth.backends.pipeline.associate.associate_by_email',
-	'social_auth.backends.pipeline.user.get_username',
-	'social_auth.backends.pipeline.user.create_user',
-	'social_auth.backends.pipeline.social.associate_user',
-	'social_auth.backends.pipeline.social.load_extra_data',
-	'social_auth.backends.pipeline.user.update_user_details',
-	'rthitha.pipeline.get_user_avatar',
-)
-
-#AUTH_PROFILE_MODULE= 'UserProfile'
-
-SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
-
-GOOGLE_OAUTH2_CLIENT_ID='310327175751-04b1pdvkbt2vcommadmbv2e881o0h5um.apps.googleusercontent.com'
-GOOGLE_OAUTH2_CLIENT_SECRET='B3mqNT8nipDN-J5lSkfN2Rs-'
-
-
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/private/'
-LOGIN_ERROR_URL = '/login-error/'
-LOGIN_ERROR_MESSAGE = True
 
 
 try:
