@@ -154,8 +154,8 @@ SOCIAL_AUTH_PIPELINE = (
 
 SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 
-GOOGLE_OAUTH2_CLIENT_ID='310327175751-04b1pdvkbt2vcommadmbv2e881o0h5um.apps.googleusercontent.com'
-GOOGLE_OAUTH2_CLIENT_SECRET='B3mqNT8nipDN-J5lSkfN2Rs-'
+GOOGLE_OAUTH2_CLIENT_ID='310327175751-vafscehg8fatr0879lijimodg8cnc1m1.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET='r1JCpHS_kf1cUghRt6SluNNf'
 
 
 LOGIN_URL = '/login/'
