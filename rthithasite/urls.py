@@ -25,6 +25,8 @@ urlpatterns = patterns('',
     url(r'^(?i)tvseries/', include('tvseries.urls')),    
 
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': settings.DEBUG}),
+
+ 	(r'^comments/', include('django.contrib.comments.urls')),
 )
 
 urlpatterns += patterns('',(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}))

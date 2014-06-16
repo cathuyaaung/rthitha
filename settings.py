@@ -31,7 +31,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['www.rthitha.com']
 
 #ADMIN_MEDIA_PREFIX = '/static/admin/'
-
+AUTH_PROFILE_MODULE = 'zmovies.UserProfile'
 # Application definition
 
 INSTALLED_APPS = (
@@ -41,11 +41,21 @@ INSTALLED_APPS = (
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
+	
 	'south',
 	'zmovies',
 	'tvseries',
 	'social_auth',
+
+    'rthitha_comments',
+    'django.contrib.comments',
+    'django.contrib.sites',
+    'mptt',
+	
 )
+
+COMMENTS_APP = 'rthitha_comments'
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -141,6 +151,11 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 
 GOOGLE_OAUTH2_CLIENT_ID='310327175751-vafscehg8fatr0879lijimodg8cnc1m1.apps.googleusercontent.com'
 GOOGLE_OAUTH2_CLIENT_SECRET='r1JCpHS_kf1cUghRt6SluNNf'
+
+FACEBOOK_APP_ID='811258585559835'
+FACEBOOK_API_SECRET='22ddbcf37637b69b50458cac4f696a38'
+
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 
 #SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 #SOCIAL_AUTH_UID_LENGTH = 16

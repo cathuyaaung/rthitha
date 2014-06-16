@@ -1,0 +1,63 @@
+{% load comments %}
+{% load mptt_tags %}
+{% load r_tags %}
+{% get_comment_list for object as comments %}
+
+
+<a class="reply-show-hide-form" target="comment-form-">Post Comment</a>
+{% render_comment_form for object %}
+<br><br>
+{% if comments %}
+<div class="panel">
+
+<ul class="comment-root">
+
+{% recursetree comments %}
+<div {% if request.REQUEST.c|add:"0" == node.id %}id="newly_posted_comment"{% endif %}>
+	<li>
+		<div class="panel comment-detail">
+            <a name="c{{ node.id }}"></a>
+            <div class="comment-detail-user-avatar">
+            	<img class="comment-detail-user-avatar-img" 
+            	src="/media/{{node.user.get_profile.avatar}}">
+            </div>
+            <div class="comment-detail-body">
+				<div class="comment-detail-user_name">
+					{% if node.user.get_profile.profileurl %}
+						<a href="{{node.user.get_profile.profileurl}}"
+						target="_blank">
+						{{ node.user.first_name}} {{node.user.last_name}}</a> 
+					{% else %}
+						{{ node.user.first_name}} {{node.user.last_name}}
+					{% endif %}
+					<!--{{ node.submit_date|timesince }} ago-->
+					 - {{ node.submit_date|timesince_human }}
+				</div>
+				<div class="comment-detail-comment">
+					<div class="comment-content">{{ node.comment }}</div>                    
+					<!-- <a href="{{ object.get_absolute_url }}#c{{ node.id }}">#</a> -->
+					<br>
+					<ul class="comment-bottom-menu">
+					<li><a class="reply-show-hide-form" target="comment-form-{{node.id}}">Reply</a></li>
+					</ul>
+					{% render_comment_form for object %}
+
+					{% if not node.is_leaf_node %}
+					<ul class="comment-children">
+					{{ children }}
+					</ul>
+					{% endif %}
+
+				</div>            	
+            </div>
+        </div>
+
+
+    </li>
+</div>
+{% endrecursetree %}
+</ul>
+</div>
+{% endif %}
+
+

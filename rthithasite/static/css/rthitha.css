@@ -6,6 +6,8 @@
   font-style: normal;
 }
 
+
+
 .dropdown-toggle:active, .open .dropdown-toggle 
 {
 	background:transparent !important; 
@@ -222,10 +224,7 @@ body {
 	width:200px;
 }
 
-.title
-{
-  font-size: 18px;
-}
+
 
 .shortnavbox
 {
@@ -234,7 +233,7 @@ body {
 
 .row
 {
-  padding-top:30px;
+  /*padding-top:30px;*/
   /*padding-left:15px;*/
 }
 
@@ -255,27 +254,140 @@ body {
   width:210px;
 }
 
-.moviedetail
-{
-	height:320px;
-	width:860px;
-}
 
 .box
 {  
 	width:215px;
 }
 
+.boxdetail
+{
+	width:100%;
+}
+
+.moviedetail
+{
+	height:320px;
+	width:860px;
+	float:left;
+}
+
 .poster
 {
 	float:left;
-	padding-right:5px;
+	padding-right:10px;
 }
+
 .iteminfo
 {
-	float:right;
+
 }
+.movie-title
+{
+  font-size: 18px;
+}
+.movie-genre
+{
+	font-size: 12px;	
+}
+
+
+
 .episode-list-title
 {
 	font-size: 16px;
+}
+
+.comments-header
+{
+	margin-top:5px;
+	font-size:20px;
+}
+
+
+/*
+ * Comments
+ */
+
+.comment-root
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+.comment-children
+{
+    list-style-type: none;
+    margin-top:5px;
+    margin-left:0px;
+    padding-left:0px;
+}
+.comment-detail
+{
+	margin-bottom:10px;
+}
+.comment-detail-body
+{
+	overflow: auto;
+}
+.comment-bottom-menu
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+	display: inline;
+}
+.comment-detail-user_name
+{
+   border-width: 1px;
+   border-bottom-width:1px;
+   border-bottom-color:rgba(255,255,255,0.1);
+   border-bottom-style: solid;
+}
+.comment-detail-user-avatar
+{
+	float: left;
+	margin-right: 10px;
+}
+
+.comment-detail-user-avatar-img
+{
+	width:50px;
+	height:50px;
+}
+
+.comment-form
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.comment-form-btn-submit
+{
+	color:#000;
+}
+.comment-form-btn-cancel
+{
+	color:#000;	
+}
+#id_comment
+{
+	color:#000;
+	width: 501px;
+	height: 106px;
+	margin: 0px;
+}
+.reply-show-hide-form, 
+.reply-show-hide-form-0
+{
+	cursor:pointer;
+}
+
+.comment-login-buttons
+{
+	list-style-type: none;
+	display: inline;
+}
+.comment-login-buttons li
+{
+	display: inline;
 }

@@ -34,6 +34,8 @@ class UserProfile(models.Model):
 	user = models.OneToOneField(User)
 	avatar = models.ImageField(upload_to = 'avatar/', default = 'poster/None/no-img.jpg',
 		null=True)
+	loginfrom = models.CharField(max_length=500, null=True, blank=True)
+	profileurl = models.CharField(max_length=500, null=True, blank=True)
 
 	def __unicode__(self):
 		return '%s' % (self.user.username,)

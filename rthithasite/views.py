@@ -12,7 +12,21 @@ def home(request):
 	context = RequestContext(request)
 	movie_list = Movie.objects.filter(active=True).order_by("-created","-id")[:4]
 	tvseries_list = TVShow.objects.filter(active=True)
-	context_dict = {'movie_list': movie_list, 'tvseries_list': tvseries_list}
+
+	userProfile = ''
+	try:
+		userProfile = UserProfile.objects.get(user=request.user.id)
+		print 'userProfile',userProfile
+		print 'userProfile.avatar',userProfile.avatar
+	except UserProfile.DoesNotExist:
+		print 'UserProfile DOES NOT EXIST request.user',request.user
+		userProfile = ''
+
+	context_dict = {
+					'movie_list': movie_list, 
+					'tvseries_list': tvseries_list,
+					'userProfile':userProfile,
+					}
 	return render_to_response('home.html', context_dict, context)
 
 def custom_404(request):

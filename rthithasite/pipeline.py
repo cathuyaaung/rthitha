@@ -11,16 +11,27 @@ from django.conf import settings #or from my_project import settings
 
 def get_user_avatar(backend, details, response, social_user, uid,\
 					user, *args, **kwargs):
-	print 'get user avatar'
+	print 'get user avatar'	
+	
 	url = None
+	loginfrom = ''
+	profileurl = ''
+
 	if backend.__class__ == FacebookBackend:
 		url = "http://graph.facebook.com/%s/picture?type=large" % response['id']
+		loginfrom = 'facebook'
+		profileurl = 'http://www.facebook.com/'+uid
 
 	elif backend.__class__ == TwitterBackend:
 		url = response.get('profile_image_url', '').replace('_normal', '')
+		loginfrom = 'twitter'
 
 	elif backend.__class__ == GoogleOAuth2Backend and "picture" in response:
 		url = response["picture"]
+		loginfrom = 'google'
+		#profileurl = 'https://plus.google.com/u/0/'
+		#profileurl = 'http://www.google.com/search?'+uid
+		profileurl = 'https://www.google.com/search?q='+uid
 
 	print url
 	if url:
@@ -34,10 +45,12 @@ def get_user_avatar(backend, details, response, social_user, uid,\
 
 		try:		
 			userProfile = UserProfile.objects.get(user=user)
-			print "exist"
+			print "Existing user"
 		except:
-			print "does not exist"
+			print "New user"
 			userProfile = UserProfile(user=user)
 
 		userProfile.avatar = 'avatar/' + user.username + '.jpg'
+		userProfile.loginfrom = loginfrom
+		userProfile.profileurl = profileurl
 		userProfile.save()			

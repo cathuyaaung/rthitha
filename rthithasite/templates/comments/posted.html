@@ -1,0 +1,35 @@
+{% block content %}
+{% load comments %}
+{% load r_tags %}
+	<div class="panel comment-detail">
+		<a name="c{{ comment.id }}"></a>
+		<div class="comment-detail-user-avatar">
+			<img class="comment-detail-user-avatar-img" 
+			src="/media/{{comment.user.get_profile.avatar}}">
+		</div>
+		<div class="comment-detail-body">
+			<div class="comment-detail-user_name">
+				{% if comment.user.get_profile.profileurl %}
+					<a href="{{comment.user.get_profile.profileurl}}"
+					target="_blank">
+					{{ comment.user.first_name}} {{comment.user.last_name}}</a> 
+				{% else %}
+					{{ comment.user.first_name}} {{comment.user.last_name}}
+				{% endif %}
+				<!--{{ comment.submit_date|timesince }} ago-->
+				 - {{ comment.submit_date|timesince_human }}
+			</div>
+			<div class="comment-detail-comment">
+				<div class="comment-content">{{ comment.comment }}</div>
+				<!-- <a href="{{ object.get_absolute_url }}#c{{ node.id }}">#</a> -->
+				<br>
+				<br>
+				<ul class="comment-bottom-menu">
+				<!--<li><a class="reply-show-hide-form" 
+				target="comment-form-{{comment.id}}">Reply</a></li>-->
+				</ul>
+				{% render_comment_form for comment %}
+			</div>            	
+		</div>
+	</div>
+{% endblock %}

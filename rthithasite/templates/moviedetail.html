@@ -1,6 +1,13 @@
+
+
 {% extends 'base.html' %}
 
-{% block title %} - movies{% endblock %}
+{% block title %} - {{ movie.title }}{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+
+{% endblock %}
 
 {% block menu_block %}
 	<li><a href="/">Home</a></li>
@@ -27,28 +34,32 @@
 		<div class="panel">
 		<iframe id="f" name="widget" src="{{ movie.location }}" width="852" height="510" style="float:center"></iframe>
 		</div>
-
 	</div>
-
 	<div class="row">
-		<div class"container">
-			<div class="col-md-4 boxdetail">
-				<div class="panel moviedetail">
-					<div class="poster">
-						<a class="posterimg" href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>
-					</div>				
-					<div class"iteminfo">
-						<p class="title">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a> ({{movie.year}})</p>
-						<p class="details">
-							<div class="description">
-							{{ movie.description }}
-							</div>
-						</p>
-					</div>
-				</div>	
-			</div>
-		</div>		
+		<div class="col-md-4 boxdetail">
+			<div class="panel moviedetail">
+				<div class="poster">
+					<a class="posterimg" href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>
+				</div>
+				<div class="iteminfo">
+					<p class="movie-title">
+						<a href="/movies/{{ movie.id }}">{{ movie.title }}
+						</a> ({{movie.year}}) 
+					</p>
+					<p class="details">
+						<div class="description">
+						<p class="movie-description">{{movie.description }}</p>
+						<p class="movie-genre">{{movie.genre}}<p>
+						</div>
+					</p>
+				</div>
+			</div>	
+		</div>
 	</div>
+
+	<h1 class="cover-heading comments-header">Comments</h1>
+	{% with movie as object %}{% include "_comments.html" %}{% endwith %}
+	
 	<h1 class="cover-heading">// <a href="/movies/">Latest Movies</a></h1>
 	<div class="row">
 		<div class"container">		
@@ -61,7 +72,6 @@
 					<div class"iteminfo">
 						<p class="title">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a> ({{movie.year}})</p>
 						<p class="details">
-
 						</p>
 					</div>				
 				</div>	
@@ -69,6 +79,7 @@
 		{% endfor %}
 		</div>		
 	</div>
+
 {% endif %}
 {% endblock %}
 
