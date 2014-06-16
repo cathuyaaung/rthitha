@@ -51,6 +51,11 @@
         </div>      
     </div> 
 	{% endif %}
+
+	<h1 class="cover-heading comments-header">Comments</h1>
+	{% with episode as object %}{% include "_comments.html" %}{% endwith %}
+
+
     <h1 class="cover-heading">// <a href="/tvseries/{{tvshow.id}}">Season {{season.number}}</a></h1>
     {% for episode in episode_list %}
             <div class"longbox">
