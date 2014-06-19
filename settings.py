@@ -24,7 +24,7 @@ import rthithasite
 SECRET_KEY = 'rfj)_%md*4!g)l77*!-w-qs-*fq&ik5)n(@3&axdbne2dj%q@m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = (
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
-	
+
 	'south',
 	'zmovies',
 	'tvseries',
@@ -51,7 +51,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.sites',
     'mptt',
-	
+
 )
 
 COMMENTS_APP = 'rthitha_comments'
