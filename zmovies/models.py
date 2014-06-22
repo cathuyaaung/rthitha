@@ -16,6 +16,7 @@ class Movie(models.Model):
 	imdburl = models.CharField(max_length=500, null=True, blank=True)
 	imdbrating = models.CharField(max_length=500, null=True, blank=True)
 	rottentomatorating = models.CharField(max_length=500, null=True, blank=True)
+	tomatourl = models.CharField(max_length=500, null=True, blank=True)
 
 	created = models.DateTimeField(auto_now_add=True, default=datetime.datetime.now())
 	modified = models.DateTimeField(auto_now=True, default=datetime.datetime.now())

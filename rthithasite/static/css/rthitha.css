@@ -391,3 +391,46 @@ body {
 {
 	display: inline;
 }
+
+
+
+/*
+ * Movie Ratings
+ */
+.icon {
+display: inline-block;
+vertical-align: text-bottom;
+background: transparent url('/static/img/icons-v2.png') no-repeat -312px -160px;
+}
+.icon.tiny{width:16px;height: 16px;}
+.tiny.fresh{background-position: -256px -144px;}
+.tiny.rotten{background-position: -272px -144px;}
+.imdbRatingPlugin{
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-o-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	color:#000;
+	display:inline-block;
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight:bold;text-decoration:none;
+	margin:5px 0
+}
+.imdbRatingStyle2{
+	/*background-color:#000;*/
+	background-color:rgba(0,0,0,0.5);
+	font-size:15px;
+	color:#fff;
+	padding:2px
+}
+.imdbRatingPlugin a{text-decoration:none}
+.imdbRatingPlugin img{border:0;vertical-align:text-bottom}
+.imdbRatingPlugin span.rating{display:inline-block}
+.imdbRatingPlugin span.ofTen{color:#666;font-size:9px}
+.imdbRatingPlugin img.star{margin-left:1px}
+.imdbRatingStyle2 span.ofTen{color:#ccc}
+.imdbRatingStyle2 img.star{margin-bottom:1px}
+.movie-ratings{position: absolute; left: 17%; top:88%;}
+.movie-rating-tomato{display:inline-block;}
+.movie-rating-imdb{display:inline-block;margin-left: 5px;}
