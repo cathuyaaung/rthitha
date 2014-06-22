@@ -50,6 +50,29 @@
 						<div class="description">
 						<p class="movie-description">{{movie.description }}</p>
 						<p class="movie-genre">{{movie.genre}}<p>
+						<div>
+						{% if movie.rottentomatorating %}
+						<div class="movie-rating-tomato">
+						<span class="tMeterIcon tiny imdbRatingPlugin imdbRatingStyle2">
+							<a href="{{movie.tomatourl}}" target="blank">
+							<span title="Rotten" class="icon tiny fresh"></span>
+							<span class="tMeterScore">{{movie.rottentomatorating}}</span>
+							</a>
+						</span>
+						</div>
+						{% endif %}
+						{% if movie.imdbrating %}
+						<div class="movie-rating-imdb">
+						<span class="imdbRatingPlugin imdbRatingStyle2">
+							<a href="{{movie.imdburl}}" target="_blank">
+							<img src="/static/img/imdb_38x18.png"/>
+							<span class="rating">{{movie.imdbrating}}
+							<span class="ofTen">/10</span></span>							
+							</a>
+						</span>
+						</div>
+						{% endif %}
+						</div>						
 						</div>
 					</p>
 				</div>
@@ -74,7 +97,29 @@
 						<p class="desc"></p>
 						<p class="genre">{{movie.genre}}</p>
 						<p class="director"></p>
-						<p class="actor"></p>
+						<div class="movie-ratings">
+						{% if movie.rottentomatorating %}
+						<div class="movie-rating-tomato">
+						<span class="tMeterIcon tiny imdbRatingPlugin imdbRatingStyle2">
+							<a href="{{movie.tomatourl}}" target="blank">
+							<span title="Rotten" class="icon tiny fresh"></span>
+							<span class="tMeterScore">{{movie.rottentomatorating}}</span>
+							</a>
+						</span>
+						</div>
+						{% endif %}
+						{% if movie.imdbrating %}
+						<div class="movie-rating-imdb">
+						<span class="imdbRatingPlugin imdbRatingStyle2">
+							<a href="{{movie.imdburl}}" target="_blank">
+							<img src="/static/img/imdb_38x18.png"/>
+							<span class="rating">{{movie.imdbrating}}
+							<span class="ofTen">/10</span></span>							
+							</a>
+						</span>
+						</div>
+						{% endif %}
+						</div>
 						</p>
 					</div>				
 				</div>	
