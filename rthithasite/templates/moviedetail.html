@@ -19,15 +19,15 @@
 {% block shortnav_block %}
 	<div class"shortnav">
 		<div class="panel">
-			<a href="/">Home</a> / 
-			<a href="/movies/">Movies</a> / 
-			<a href="/movies/{{ movie.id }}">{{ movie.title }}</a> / 
+			<a href="/">Home</a> /
+			<a href="/movies/">Movies</a> /
+			<a href="/movies/{{ movie.id }}">{{ movie.title }}</a> /
 		</div>
 	</div>
 {% endblock %}
 
 
-{% block player_block %}        
+{% block player_block %}
 {% if movie %}
 	<div class="playerbox">
 		<h1>{{ movie.title }}</h1>
@@ -44,7 +44,7 @@
 				<div class="iteminfo">
 					<p class="movie-title">
 						<a href="/movies/{{ movie.id }}">{{ movie.title }}
-						</a> ({{movie.year}}) 
+						</a> ({{movie.year}})
 					</p>
 					<p class="details">
 						<div class="description">
@@ -67,31 +67,45 @@
 							<a href="{{movie.imdburl}}" target="_blank">
 							<img src="/static/img/imdb_38x18.png"/>
 							<span class="rating">{{movie.imdbrating}}
-							<span class="ofTen">/10</span></span>							
+							<span class="ofTen">/10</span></span>
 							</a>
 						</span>
 						</div>
 						{% endif %}
-						</div>						
+						</div>
 						</div>
 					</p>
 				</div>
-			</div>	
+			</div>
 		</div>
+	</div>
+
+	<div class"shortnav">
+		<div class="panel nav">
+            <i>
+            "Unable to play this video at this time. The number of allowed playbacks has been exceeded. Please try again later."<br>
+            If you see this message, clear Cookies from your browser.<br>
+            Here's how<br>
+            <a href="http://www.wikihow.com/Clear-Your-Browser's-Cookies">http://www.wikihow.com/Clear-Your-Browser's-Cookies</a><br>
+            ရုပ္ရွင္ ၾကည့္လို႔မရရင္.. Browser ရဲ့ Cookie ေတြကို ရွင္းေပးဖို႔လိုပါတယ္။<br>
+            ဘယ္လို Cookie ရွင္းရမလဲမသိရင္.. ဒီမွာ ၾကည့္ပါ..။<br>
+            <a href="http://www.wikihow.com/Clear-Your-Browser's-Cookies">http://www.wikihow.com/Clear-Your-Browser's-Cookies</a>
+            </i>
+        </div>
 	</div>
 
 	<h1 class="cover-heading comments-header">Comments</h1>
 	{% with movie as object %}{% include "_comments.html" %}{% endwith %}
-	
+
 	<h1 class="cover-heading">// <a href="/movies/">Latest Movies</a></h1>
 	<div class="row">
-		<div class"container">		
+		<div class"container">
 		{% for movie in movie_list %}
 			<div class="col-md-4 box">
 				<div class="panel movie">
 					<div class="poster">
 						<a class="posterimg" href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>
-					</div>				
+					</div>
 					<div class"iteminfo">
 						<p class="title">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a> ({{movie.year}})</p>
 						<p class="desc"></p>
@@ -114,18 +128,18 @@
 							<a href="{{movie.imdburl}}" target="_blank">
 							<img src="/static/img/imdb_38x18.png"/>
 							<span class="rating">{{movie.imdbrating}}
-							<span class="ofTen">/10</span></span>							
+							<span class="ofTen">/10</span></span>
 							</a>
 						</span>
 						</div>
 						{% endif %}
 						</div>
 						</p>
-					</div>				
-				</div>	
+					</div>
+				</div>
 			</div>
 		{% endfor %}
-		</div>		
+		</div>
 	</div>
 
 {% endif %}
