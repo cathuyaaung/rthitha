@@ -8,9 +8,9 @@
 
 
 
-.dropdown-toggle:active, .open .dropdown-toggle 
+.dropdown-toggle:active, .open .dropdown-toggle
 {
-	background:transparent !important; 
+	background:transparent !important;
 	color:#fff !important;
 }
 
@@ -68,11 +68,11 @@ html,
 body {
   height: 100%;
   background-color: #333;
-  background-image: url("/static/bg.jpg");    
-  background-attachment:fixed;  
+  background-image: url("/static/bg.jpg");
+  background-attachment:fixed;
 }
 body {
-  color: #fff;
+  color: #FFEDE2;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   /*box-shadow: inset 0 0 100px rgba(0,0,0,.5);*/
@@ -140,7 +140,7 @@ body {
  */
 
 .cover {
-  padding: 0 20px;  
+  padding: 0 20px;
   text-align: left;
 }
 .cover .btn-lg {
@@ -186,7 +186,7 @@ body {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 100%; 
+    width: 100%;
     /* Must be percentage or pixels for horizontal alignment */
   }
 }
@@ -256,7 +256,7 @@ body {
 
 
 .box
-{  
+{
 	width:215px;
 }
 
@@ -286,11 +286,18 @@ body {
 {
   font-size: 18px;
 }
+.season-title
+{
+  font-size: 16px;
+}
 .movie-genre
 {
-	font-size: 12px;	
+	font-size: 12px;
 }
-
+.movie-details
+{
+    font-size: 12px;
+}
 
 
 .episode-list-title
@@ -367,7 +374,7 @@ body {
 }
 .comment-form-btn-cancel
 {
-	color:#000;	
+	color:#000;
 }
 #id_comment
 {
@@ -376,7 +383,7 @@ body {
 	height: 106px;
 	margin: 0px;
 }
-.reply-show-hide-form, 
+.reply-show-hide-form,
 .reply-show-hide-form-0
 {
 	cursor:pointer;

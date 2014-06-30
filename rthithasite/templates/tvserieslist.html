@@ -12,32 +12,32 @@
 {% block shortnav_block %}
 	<div class"shortnav">
 		<div class="panel">
-			<a href="/">Home</a> / 
-			<a href="/tvseries/">TV Series</a> / 
+			<a href="/">Home</a> /
+			<a href="/tvseries/">TV Series</a> /
 		</div>
 	</div>
 {% endblock %}
 
 {% block movie_list_block %}
-	<h1 class="cover-heading">// <a href="/tvseries/">Latest TV Series</a></h1>
+	<h1 class="cover-heading">All TV Series</h1>
 	<div class="row">
 		<div class"container">
 		{% for tvshow in tvseries_list %}
 		<div class="col-xs-4 box">
 			<div class="panel movie">
-				<div class="poster">				            
+				<div class="poster">
 					<a  class="posterimg" href="/tvseries/{{ tvshow.id }}"><img src="/media/{{tvshow.poster}}"></a>
 				</div>
 				<div class"iteminfo">
-					<p class="title">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a> 
+					<div class="movie-title"><a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</div>
 				</p>
 				<p class="details"></p>
 				</div>
-			</div>	
+			</div>
 		</div>
 		{% endfor %}
-		</div>		
-	</div>			
+		</div>
+	</div>
 {% endblock %}
 
 

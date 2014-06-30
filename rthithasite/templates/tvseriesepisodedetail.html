@@ -11,9 +11,9 @@
 {% block shortnav_block %}
 	<div class"shortnav">
 		<div class="panel">
-			<a href="/">Home</a> / 		
-			<a href="/tvseries/">TV Series</a> / 		
-			<a href="/tvseries/{{tvshow.id}}">{{tvshow.name}}</a> / 
+			<a href="/">Home</a> /
+			<a href="/tvseries/">TV Series</a> /
+			<a href="/tvseries/{{tvshow.id}}">{{tvshow.name}}</a> /
 			<a href="/tvseries/{{tvshow.id}}/{{season.id}}/" class="topmenu">
 			Season {{season.number}}</a> /
 			<a href="/tvseries/{{tvshow.id}}/{{season.id}}/{{episode.id}}/" class="topmenu">
@@ -22,10 +22,10 @@
 	</div>
 {% endblock %}
 
-{% block player_block %}        
+{% block player_block %}
 	{% if episode %}
 	<div class="playerbox">
-		
+
 		<div class="panel">
 		<iframe id="f" name="widget" src="{{ episode.location }}" width="852" height="510" style="float:center"></iframe>
 		</div>
@@ -37,33 +37,41 @@
     <div class="row">
         <div class"container">
         <div class="col-md-4 boxdetail">
-            <div class="panel moviedetail">     
-                <div class="poster">                            
+            <div class="panel moviedetail">
+                <div class="poster">
                     <a class="posterimg" href="/tvseries/{{ tvshow.id }}"><img src="/media/{{tvshow.poster}}"></a>
                 </div>
                 <div class"iteminfo">
-                    <p class="title">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a> 
+                    <p class="title"><a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a>
                     </p>
                     <p class="details">{{ tvshow.description }}</p>
                 </div>
-            </div>  
+            </div>
         </div>
-        </div>      
-    </div> 
+        </div>
+    </div>
 	{% endif %}
 
 	<h1 class="cover-heading comments-header">Comments</h1>
 	{% with episode as object %}{% include "_comments.html" %}{% endwith %}
 
 
-    <h1 class="cover-heading">// <a href="/tvseries/{{tvshow.id}}">Season {{season.number}}</a></h1>
-    {% for episode in episode_list %}
-            <div class"longbox">
+    <h1 class="cover-heading"><a href="/tvseries/{{tvshow.id}}">Season {{season.number}}</a></h1>
+    {% for episodeFromList in episode_list %}
+            <div class="longbox">
                 <h1 class="cover-heading episode-list-title">
-                // <a href="/tvseries/{{ episode.season.tvshow.id }}/{{ episode.season.id}}/{{ episode.id}}">Episode {{episode.number}} - {{episode.title}}</a></h1>
+                {% if episodeFromList.id == episode.id %}
+                Episode {{episodeFromList.number}} - {{episodeFromList.title}}
+                {% else %}
+                <a href="/tvseries/{{ episodeFromList.season.tvshow.id }}/{{ episodeFromList.season.id}}/{{ episodeFromList.id}}">
+                Episode {{episodeFromList.number}} - {{episodeFromList.title}}
+                </a>
+
+                {% endif %}
+                </h1>
                 <p class="lead"></p>
             </div>
-    {% endfor %}    	
+    {% endfor %}
 {% endblock %}
 
 

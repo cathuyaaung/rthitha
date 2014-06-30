@@ -13,8 +13,8 @@
 {% block shortnav_block %}
 	<div class"shortnav">
 		<div class="panel">
-			<a href="/">Home</a> / 
-            <a href="/tvseries/">TV Series</a> / 
+			<a href="/">Home</a> /
+            <a href="/tvseries/">TV Series</a> /
 			<a href="/tvseries/{{tvshow.id}}">{{tvshow.name}}</a>
 		</div>
 	</div>
@@ -22,34 +22,31 @@
 
 {% block season_list_block %}
     {% if season_list %}
-
+    <h1>{{ tvshow.name }}</h1>
     <div class="row">
         <div class"container">
         <div class="col-md-4 boxdetail">
-            <div class="panel moviedetail">     
-                <div class="poster">                            
+            <div class="panel moviedetail">
+                <div class="poster">
                     <a class="posterimg" href="/tvseries/{{ tvshow.id }}"><img src="/media/{{tvshow.poster}}"></a>
                 </div>
                 <div class"iteminfo">
-                    <p class="title">// <a href="/tvseries/{{ tvshow.id }}">{{ tvshow.name }}</a> 
-                    </p>
                     <p class="details">{{ tvshow.description }}</p>
                 </div>
-            </div>  
+            </div>
         </div>
-        </div>      
-    </div>  
+        </div>
+    </div>
     {% for season in season_list %}
-            <div class"longbox">
-                <h1 class="cover-heading">// <a href="/tvseries/{{season.tvshow.id}}/{{ season.id}}">Season {{ season.number }}</a></h1>
-                <p class="lead"></p>
+            <div class="panel">
+                <div class="season-title"><a href="/tvseries/{{season.tvshow.id}}/{{ season.id}}">Season {{ season.number }}</a></div>
             </div>
     {% endfor %}
     {% endif %}
 {% endblock %}
 
 
-{% block player_block %}   
+{% block player_block %}
 {% endblock %}
 
 {% block movie_list_block %}

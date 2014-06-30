@@ -50,6 +50,10 @@
 						<div class="description">
 						<p class="movie-description">{{movie.description }}</p>
 						<p class="movie-genre">{{movie.genre}}<p>
+					    {% if movie.director %}<b>Director:</b> {{movie.director}}<br>{% endif %}
+					    {% if movie.stars %}<b>Stars:</b> {{movie.stars}}<br>{% endif %}
+					    {% if movie.writer %}<b>Writers:</b> {{movie.writer}}<br>{% endif %}
+
 						<div>
 						{% if movie.rottentomatorating %}
 						<div class="movie-rating-tomato">
@@ -97,7 +101,7 @@
 	<h1 class="cover-heading comments-header">Comments</h1>
 	{% with movie as object %}{% include "_comments.html" %}{% endwith %}
 
-	<h1 class="cover-heading">// <a href="/movies/">Latest Movies</a></h1>
+	<h1 class="cover-heading"><a href="/movies/">Latest Movies</a></h1>
 	<div class="row">
 		<div class"container">
 		{% for movie in movie_list %}
@@ -107,10 +111,12 @@
 						<a class="posterimg" href="/movies/{{ movie.id }}"><img src="/media/{{movie.poster}}"></a>
 					</div>
 					<div class"iteminfo">
-						<p class="title">// <a href="/movies/{{ movie.id }}">{{ movie.title }}</a> ({{movie.year}})</p>
-						<p class="desc"></p>
-						<p class="genre">{{movie.genre}}</p>
-						<p class="director"></p>
+						<div class="movie-title"><a href="/movies/{{ movie.id }}">{{ movie.title }}</a> ({{movie.year}})</div>
+						<div class="movie-details">
+						    {{movie.genre}}<br>
+						    {% if movie.director %}<b>Director:</b> {{movie.director}}<br>{% endif %}
+						    {% if movie.stars %}<b>Stars:</b> {{movie.stars}}<br>{% endif %}
+						</div>
 						<div class="movie-ratings">
 						{% if movie.rottentomatorating %}
 						<div class="movie-rating-tomato">
