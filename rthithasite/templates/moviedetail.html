@@ -29,10 +29,30 @@
 
 {% block player_block %}
 {% if movie %}
+	<div class"shortnav">
+		<div class="panel nav">
+			<ul>			
+			<li>Flash doesn't work anymore, using HTML5 player</li>
+            <li>Skipping is disabled</li>
+            <li>Subtitles are disabled</li>
+            <li>Request movies on http://facebook.com/rthitha001/</li>
+            </ul>
+        </div>
+	</div>
+
 	<div class="playerbox">
 		<h1>{{ movie.title }}</h1>
 		<div class="panel">
-		<iframe id="f" name="widget" src="{{ movie.location }}" width="852" height="510" style="float:center"></iframe>
+		
+		{% if movie.location2 %}
+		<video 
+			width="852" height="510"
+			src="{{movie.location2}}" controls>
+		</video>
+		{%else%}		
+			<iframe id="f" name="widget" src="{{ movie.location }}" 
+			width="852" height="510" style="float:center"></iframe>		
+		{% endif%}
 		</div>
 	</div>
 	<div class="row">
@@ -84,20 +104,7 @@
 		</div>
 	</div>
 
-	<div class"shortnav">
-		<div class="panel nav">
-            <i>
-            "Unable to play this video at this time. The number of allowed playbacks has been exceeded. Please try again later."<br>
-            If you see this message, Sign out of your google account.<br>
-            If it still doesn't work, clear your browser cookies.<br>
-            Here's how<br>
-            <a href="http://www.wikihow.com/Clear-Your-Browser's-Cookies">http://www.wikihow.com/Clear-Your-Browser's-Cookies</a><br>
-            ရုပ္ရွင္ ၾကည့္လို႔မရရင္.. Browser ရဲ့ Cookie ေတြကို ရွင္းေပးဖို႔လိုပါတယ္။<br>
-            ဘယ္လို Cookie ရွင္းရမလဲမသိရင္.. ဒီမွာ ၾကည့္ပါ..။<br>
-            <a href="http://www.wikihow.com/Clear-Your-Browser's-Cookies">http://www.wikihow.com/Clear-Your-Browser's-Cookies</a>
-            </i>
-        </div>
-	</div>
+
 
 	<h1 class="cover-heading comments-header">Comments</h1>
 	{% with movie as object %}{% include "_comments.html" %}{% endwith %}

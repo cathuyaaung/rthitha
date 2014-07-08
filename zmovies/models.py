@@ -4,7 +4,14 @@ import datetime
 # Create your models here.
 class Movie(models.Model):
 	title = models.CharField(max_length=500)
+	
 	location = models.CharField(max_length=500)
+	location2 = models.CharField(max_length=500, null=True, blank=True)
+	location3 = models.CharField(max_length=500, null=True, blank=True)
+
+	subtitles1 = models.CharField(max_length=500, null=True, blank=True)
+	subtitles2 = models.CharField(max_length=500, null=True, blank=True)
+
 	poster = models.ImageField(upload_to = 'poster/', default = 'poster/None/no-img.jpg',
 		null=True)
 	description = models.TextField(null=True, blank=True)
