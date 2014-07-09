@@ -31,9 +31,10 @@
 {% if movie %}
 	<div class"shortnav">
 		<div class="panel nav">
-			<ul>			
+			<ul>
             <li>Skipping is disabled</li>
             <li>Subtitles are disabled</li>
+            <li>Works best on Chrome</li>
             <li>Request movies on <a href="http://facebook.com/rthitha001/">facebook</a></li>
             </ul>
         </div>
@@ -42,15 +43,24 @@
 	<div class="playerbox">
 		<h1>{{ movie.title }}</h1>
 		<div class="panel">
-		
+
 		{% if movie.location2 %}
-		<video 
-			width="852" height="510"
-			src="{{movie.location2}}" controls>
+		<video width="852" height="510" controls>
+		    <source
+			src="{{movie.location2}}"
+		    {% if movie.location3 %}
+		        {{movie.location3}}
+		    {% endif %}
+			>
+
+			{% if movie.subtitles1 %}
+			<track kind="captions" srclang="en" label="English"
+            src="{{movie.subtitles1}}" default></track>
+			{% endif %}
 		</video>
-		{%else%}		
-			<iframe id="f" name="widget" src="{{ movie.location }}" 
-			width="852" height="510" style="float:center"></iframe>		
+		{%else%}
+			<iframe id="f" name="widget" src="{{ movie.location }}"
+			width="852" height="510" style="float:center"></iframe>
 		{% endif%}
 		</div>
 	</div>
