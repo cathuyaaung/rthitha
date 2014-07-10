@@ -33,6 +33,11 @@ class Episode(models.Model):
 	title = models.CharField(max_length=500)
 	description = models.TextField()
 	location = models.CharField(max_length=500, null=True)
+	location2 = models.CharField(max_length=500, null=True, blank=True)
+	location3 = models.CharField(max_length=500, null=True, blank=True)
+
+	subtitles1 = models.CharField(max_length=500, null=True, blank=True)
+	subtitles2 = models.CharField(max_length=500, null=True, blank=True)
 
 	active = models.BooleanField(default=True)
 
