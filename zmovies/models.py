@@ -44,6 +44,9 @@ class Movie(models.Model):
 		else:
 			return '%s [INACTIVE]' % (self.title,)
 
+
+
+
 from django.contrib.auth.models import User    
 
 class UserProfile(models.Model):

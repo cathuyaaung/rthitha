@@ -1,7 +1,20 @@
 from django.contrib import admin
 from zmovies.models import Movie, UserProfile
 
-admin.site.register(Movie)
+def make_ACTIVE(modeladmin, request, queryset):
+	queryset.update(active=True)
+make_ACTIVE.short_description = "ACTIVE"
+
+def make_INACTIVE(modeladmin, request, queryset):
+	queryset.update(active=False)
+make_INACTIVE.short_description = "INACTIVE"
+
+class MovieAdmin(admin.ModelAdmin):
+    list_display = ['title', 'active']
+    ordering = ['title']
+    actions = [make_ACTIVE, make_INACTIVE]
+
+admin.site.register(Movie, MovieAdmin)
 
 
 
