@@ -18,9 +18,8 @@ $(document).ready(function(){
                 var id = $(this).attr('id');
                 var target = $(this).attr('target');
 
-      var d = $(this).data('srt');
-      alert(d);
-      var subtitles1 = d;
+				var d = $(this).data('srt');
+				var subtitles1 = d;
 
 				if($(document).find('.targetlocation').length){
 					$targetlocation = $('.targetlocation');
@@ -31,9 +30,11 @@ $(document).ready(function(){
                         $targetlocation.html(strHtml);
 					}else{
 
-					    strHtml = "<video width='852' height='510' controls><source src='"+target+
-                        "'><track kind='captions' srclang='en' label='English'"+
-                        "src='"+subtitles1+"' default></track></video>";
+						strHtml = "<video width='852' height='510' controls=''>" +
+						"  <source src='"+target+"'> " +
+						"  <track src='"+subtitles1+"' label='English subtitles' kind='subtitles' srclang='en' default=''></track> " +
+						"</video>";
+						
 
                         $targetlocation.html(strHtml);
 					}
