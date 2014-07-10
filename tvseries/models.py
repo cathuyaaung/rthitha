@@ -32,9 +32,17 @@ class Episode(models.Model):
 	number = models.IntegerField(default=1)
 	title = models.CharField(max_length=500)
 	description = models.TextField()
+	
 	location = models.CharField(max_length=500, null=True)
 	location2 = models.CharField(max_length=500, null=True, blank=True)
 	location3 = models.CharField(max_length=500, null=True, blank=True)
+	location4 = models.CharField(max_length=500, null=True, blank=True)
+	location5 = models.CharField(max_length=500, null=True, blank=True)
+	location6 = models.CharField(max_length=500, null=True, blank=True)
+	location7 = models.CharField(max_length=500, null=True, blank=True)
+	location8 = models.CharField(max_length=500, null=True, blank=True)
+	location9 = models.CharField(max_length=500, null=True, blank=True)
+	location10 = models.CharField(max_length=500, null=True, blank=True)
 
 	subtitles1 = models.CharField(max_length=500, null=True, blank=True)
 	subtitles2 = models.CharField(max_length=500, null=True, blank=True)

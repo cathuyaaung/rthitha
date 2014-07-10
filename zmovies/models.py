@@ -5,13 +5,6 @@ import datetime
 class Movie(models.Model):
 	title = models.CharField(max_length=500)
 	
-	location = models.CharField(max_length=500)
-	location2 = models.CharField(max_length=500, null=True, blank=True)
-	location3 = models.CharField(max_length=500, null=True, blank=True)
-
-	subtitles1 = models.CharField(max_length=500, null=True, blank=True)
-	subtitles2 = models.CharField(max_length=500, null=True, blank=True)
-
 	poster = models.ImageField(upload_to = 'poster/', default = 'poster/None/no-img.jpg',
 		null=True)
 	description = models.TextField(null=True, blank=True)
@@ -27,6 +20,21 @@ class Movie(models.Model):
 
 	created = models.DateTimeField(auto_now_add=True, default=datetime.datetime.now())
 	modified = models.DateTimeField(auto_now=True, default=datetime.datetime.now())
+
+	location = models.CharField(max_length=500)
+	location2 = models.CharField(max_length=500, null=True, blank=True)
+	location3 = models.CharField(max_length=500, null=True, blank=True)
+	location4 = models.CharField(max_length=500, null=True, blank=True)
+	location5 = models.CharField(max_length=500, null=True, blank=True)
+	location6 = models.CharField(max_length=500, null=True, blank=True)
+	location7 = models.CharField(max_length=500, null=True, blank=True)
+	location8 = models.CharField(max_length=500, null=True, blank=True)
+	location9 = models.CharField(max_length=500, null=True, blank=True)
+	location10 = models.CharField(max_length=500, null=True, blank=True)
+
+	subtitles1 = models.CharField(max_length=500, null=True, blank=True)
+	subtitles2 = models.CharField(max_length=500, null=True, blank=True)
+
 
 	active = models.BooleanField(default=True)
 
