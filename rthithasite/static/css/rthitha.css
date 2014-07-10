@@ -441,3 +441,12 @@ background: transparent url('/static/img/icons-v2.png') no-repeat -312px -160px;
 .movie-ratings{position: absolute; left: 17%; top:88%;}
 .movie-rating-tomato{display:inline-block;}
 .movie-rating-imdb{display:inline-block;margin-left: 5px;}
+
+
+
+/*
+    Links
+*/
+.location{display:inline-block; cursor:pointer;}
+
+

@@ -32,17 +32,35 @@
 	<div class"shortnav">
 		<div class="panel nav">
 			<ul>
-            <li>Skipping is disabled</li>
-            <li>Subtitles are disabled</li>
-            <li>Works best on Chrome</li>
-            <li>Request movies on <a href="http://facebook.com/rthitha001/">facebook</a></li>
+            <li>Click on either Link 1 or Link 2 to watch.</li>
+            <li>Check each link to see if they're working</li>
+            <li>Link 1 still require you to log out of your Google Account to watch</li>
+            <li>Link 2 could take some time to load</li>
+            <li>If you want to watch and all links are not working, let me know and I'll upload a new copy</li>
+            <li>Still working on subtitles</li>
             </ul>
         </div>
 	</div>
 
 	<div class="playerbox">
 		<h1>{{ movie.title }}</h1>
-		<div class="panel">
+		<div class="copies">
+		    {%if movie.location%}
+	        <div class="panel location">
+	            <a id="1" class="movielink" target="{{movie.location}}"  data-srt="{{movie.subtitles1}}">Link 1</a>
+	        </div>
+		    {%endif%}
+		    {%if movie.location2%}
+	        <div class="panel location">
+	            <a id="2" class="movielink" target="{{movie.location2}}"  data-srt="{{movie.subtitles1}}">Link 2</a>
+	        </div>
+		    {%endif%}
+		</div>
+
+		<div class="panel targetlocation" id="targetlocation">
+		<!--
+		<iframe id="f" name="widget" src="{{ movie.location }}"
+		width="852" height="510" style="float:center"></iframe>
 
 		{% if movie.location2 %}
 		<video width="852" height="510" controls>
@@ -62,6 +80,7 @@
 			<iframe id="f" name="widget" src="{{ movie.location }}"
 			width="852" height="510" style="float:center"></iframe>
 		{% endif%}
+		-->
 		</div>
 	</div>
 	<div class="row">
