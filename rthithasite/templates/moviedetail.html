@@ -58,6 +58,14 @@
 		</div>
 
 		<div class="panel targetlocation" id="targetlocation">
+
+		    {%if movie.location2%}
+			<video width='852' height='510' controls=''>
+			<source src='{{movie.location2}}'>
+			<track src='{{movie.subtitles1}}' label='English subtitles' kind='subtitles' srclang='en' default=''></track>
+			</video>
+		    {%endif%}
+
 		<!--
 		<iframe id="f" name="widget" src="{{ movie.location }}"
 		width="852" height="510" style="float:center"></iframe>
