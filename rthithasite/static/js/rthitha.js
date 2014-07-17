@@ -12,6 +12,7 @@ $(document).ready(function(){
 	$.fn.bindShowPlayer = function() {
 
 		$('div.location').each(function() {
+
 			var $locationdiv = $(this)
 
 			$("a.movielink", $locationdiv).click(function(e) {
@@ -22,22 +23,16 @@ $(document).ready(function(){
 				var subtitles1 = d;
 
 				if($(document).find('.targetlocation').length){
-					$targetlocation = $('.targetlocation');
 
-					if(id==1){
-					    strHtml = "<iframe id='f' name='widget' src='"+target+
-                        "' width='852' height='510' style='float:center'></iframe>";
-                        $targetlocation.html(strHtml);
-					}else{
+    					$targetlocation = $('.targetlocation');
 
-						strHtml = "<video width='852' height='510' controls=''>" +
-						"  <source src='"+target+"'> " +
-						"  <track src='"+subtitles1+"' label='English subtitles' kind='subtitles' srclang='en' default=''></track> " +
-						"</video>";
-						
+						strHtml = "Part "+id+"<br><iframe id='f' name='widget' src='"+target+"' " +
+						"width='852' height='510' style='float:center'></iframe>";
 
                         $targetlocation.html(strHtml);
-					}
+
+                        $(this).html("<a id='1' class='movielink' target='"+target+"'><b>Part "+id+"</b></a>");
+
 				}
 			});
 		});

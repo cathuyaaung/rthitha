@@ -32,12 +32,7 @@
 	<div class"shortnav">
 		<div class="panel nav">
 			<ul>
-            <li>Click on either Link 1 or Link 2 to watch.</li>
-            <li>Check each link to see if they're working</li>
-            <li>Link 1 still require you to log out of your Google Account to watch</li>
-            <li>Link 2 could take some time to load</li>
-            <li>If you want to watch and all links are not working, let me know and I'll upload a new copy</li>
-            <li>Still working on subtitles</li>
+            <li>Movies have multiple parts.</li>
             </ul>
         </div>
 	</div>
@@ -46,49 +41,44 @@
 		<h1>{{ movie.title }}</h1>
 		<div class="copies">
 		    {%if movie.location%}
-	        <div class="panel location">
-	            <a id="1" class="movielink" target="{{movie.location}}"  data-srt="{{movie.subtitles1}}">Link 1</a>
-	        </div>
+	        <div class="panel location"><a id="1" class="movielink" target="{{movie.location}}"><b>Part 1</b></a></div>
 		    {%endif%}
 		    {%if movie.location2%}
-	        <div class="panel location">
-	            <a id="2" class="movielink" target="{{movie.location2}}"  data-srt="{{movie.subtitles1}}">Link 2</a>
-	        </div>
-		    {%endif%}
+	        <div class="panel location"><a id="2" class="movielink" target="{{movie.location2}}">Part 2</a></div>
+	        {%endif%}
+		    {%if movie.location3%}
+	        <div class="panel location"><a id="3" class="movielink" target="{{movie.location3}}">Part 3</a></div>
+	        {%endif%}
+		    {%if movie.location4%}
+	        <div class="panel location"><a id="4" class="movielink" target="{{movie.location4}}">Part 4</a></div>
+	        {%endif%}
+		    {%if movie.location5%}
+	        <div class="panel location"><a id="5" class="movielink" target="{{movie.location5}}">Part 5</a></div>
+	        {%endif%}
+		    {%if movie.location6%}
+	        <div class="panel location"><a id="6" class="movielink" target="{{movie.location6}}">Part 6</a></div>
+	        {%endif%}
+		    {%if movie.location7%}
+	        <div class="panel location"><a id="7" class="movielink" target="{{movie.location7}}">Part 7</a></div>
+	        {%endif%}
+		    {%if movie.location8%}
+	        <div class="panel location"><a id="8" class="movielink" target="{{movie.location8}}">Part 8</a></div>
+	        {%endif%}
+		    {%if movie.location9%}
+	        <div class="panel location"><a id="9" class="movielink" target="{{movie.location9}}">Part 9</a></div>
+	        {%endif%}
+		    {%if movie.location10%}
+	        <div class="panel location"><a id="10" class="movielink" target="{{movie.location10}}">Part 10</a></div>
+	        {%endif%}
+
 		</div>
 
 		<div class="panel targetlocation" id="targetlocation">
 
-		    {%if movie.location2%}
-			<video width='852' height='510' controls=''>
-			<source src='{{movie.location2}}'>
-			<track src='{{movie.subtitles1}}' label='English subtitles' kind='subtitles' srclang='en' default=''></track>
-			</video>
+		    {%if movie.location%}
+            <iframe id='f' name='widget' src='{{movie.location}}'
+            width='852' height='510' style='float:center'></iframe>
 		    {%endif%}
-
-		<!--
-		<iframe id="f" name="widget" src="{{ movie.location }}"
-		width="852" height="510" style="float:center"></iframe>
-
-		{% if movie.location2 %}
-		<video width="852" height="510" controls>
-		    <source
-			src="{{movie.location2}}"
-		    {% if movie.location3 %}
-		        {{movie.location3}}
-		    {% endif %}
-			>
-
-			{% if movie.subtitles1 %}
-			<track kind="captions" srclang="en" label="English"
-            src="{{movie.subtitles1}}" default></track>
-			{% endif %}
-		</video>
-		{%else%}
-			<iframe id="f" name="widget" src="{{ movie.location }}"
-			width="852" height="510" style="float:center"></iframe>
-		{% endif%}
-		-->
 		</div>
 	</div>
 	<div class="row">
@@ -140,10 +130,10 @@
 		</div>
 	</div>
 
+    <div class="panel">
+        <div class="fb-comments" data-href="http://www.rthitha.com{{ request.path }}" data-numposts="10" data-colorscheme="dark" data-width="850"></div>
+    </div>
 
-
-	<h1 class="cover-heading comments-header">Comments</h1>
-	{% with movie as object %}{% include "_comments.html" %}{% endwith %}
 
 	<h1 class="cover-heading"><a href="/movies/">Latest Movies</a></h1>
 	<div class="row">
